@@ -9,7 +9,15 @@ namespace RestWPF
     {
         public MainWindow()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (System.Exception ex)
+            {
+
+                throw;
+            }
         }
     }
 }

@@ -1,6 +1,4 @@
 using System;
-using GalaSoft.MvvmLight;
-using RestAPI.Controllers;
 
 namespace RestWPF.ViewModel
 {
@@ -16,30 +14,27 @@ namespace RestWPF.ViewModel
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : BaseViewModel
     {
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
-
-
-            InitializeData();
+            InitializeDataAsync();
         }
 
-        private void InitializeData()
+        private async void InitializeDataAsync()
         {
+            try
+            {
+                var category = await _accountService.GetCategoryAsync(1);
+            }
+            catch (Exception ex)
+            {
 
-
+            }
         }
     }
 }
