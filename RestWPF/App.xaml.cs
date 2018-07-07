@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using GalaSoft.MvvmLight.Ioc;
+using RestWPF.SQLiteClient;
 using System.Windows;
 
 namespace RestWPF
@@ -13,5 +9,10 @@ namespace RestWPF
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            SimpleIoc.Default.Register<ISQLite, SQLiteWPF>();
+            SqliteServiceClient.Instance.CreateDbIfNotExist();
+        }
     }
 }

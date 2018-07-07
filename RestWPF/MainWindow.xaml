@@ -9,8 +9,6 @@
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         >
     <Grid>
-
-        <!--<TextBlock Text="{Binding Name}" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>-->
         <Viewer:CrystalReportsViewer
             x:Name="crViewer"
             HorizontalAlignment="Left"

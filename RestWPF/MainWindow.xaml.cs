@@ -1,6 +1,8 @@
 ﻿using CrystalDecisions.CrystalReports.Engine;
 using System.Windows;
 using System.Linq;
+using RestWPF.SQLiteClient;
+using RestWPF.Model;
 
 namespace RestWPF
 {
@@ -20,10 +22,10 @@ namespace RestWPF
 
                 throw;
             }
-            Loaded += MainWindow_Loaded;
+            Loaded += MainWindow_LoadedAsync;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void MainWindow_LoadedAsync(object sender, RoutedEventArgs e)
         {
             ReportDocument reportDocument = new ReportDocument();
             reportDocument.Load("../../CategoryReport.rpt");
@@ -34,6 +36,11 @@ namespace RestWPF
             }
             crViewer.ViewerCore.ReportSource = reportDocument;
 
+            await SqliteServiceClient.Db.InsertAsync(new Address { Addreses= "Mira Road", FName="Jitnedra", LName="Jadav", Phone="9702655927", Pin="401107" });
+
+            var InsertedData = await SqliteServiceClient.Db.Table<Address>().ToListAsync();
+
         }
+
     }
 }
