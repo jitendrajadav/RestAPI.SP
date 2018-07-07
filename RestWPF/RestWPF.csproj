@@ -38,6 +38,12 @@
     <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.3\lib\net47\CommonServiceLocator.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
@@ -50,8 +56,19 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="sapbusinessobjects.wpf.viewer, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="SAPBusinessObjects.WPF.ViewerShared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -73,6 +90,92 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BRAND.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CATEGORY.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CategoryReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CAT_TYPE_MASTER.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUSTOMER_MASTER.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUSTOMER_PRODUCT_RATE_MASTER.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FruiBytesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FruiBytesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FruiBytesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FruiBytesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FruiBytesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="FruitBytesDataSet.cs">
+      <DependentUpon>FruitBytesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FruitBytesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FruitBytesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LOGIN.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MANUFACT.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAYMENT_MASTER.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="POS_DETAIL.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="POS_HEADER.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="POS_PAYMENT.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCT_MASTER.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PUR_DET.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PUR_HDR.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STOCK_LEDGER.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STOCK_SUMMARY.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SUB_CATEGORY.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SUPPLIER_MASTER.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SUPPLIER_RATE_MASTER.cs">
+      <DependentUpon>FruiBytesModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
@@ -103,10 +206,32 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="CategoryReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CategoryReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="FruiBytesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FruiBytesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="FruiBytesModel.edmx.diagram">
+      <DependentUpon>FruiBytesModel.edmx</DependentUpon>
+    </None>
+    <None Include="FruitBytesDataSet.xsc">
+      <DependentUpon>FruitBytesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FruitBytesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FruitBytesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FruitBytesDataSet.xss">
+      <DependentUpon>FruitBytesDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -124,6 +249,22 @@
       <Project>{e8d14a9e-f226-40fe-b73a-ae7c0c03eff4}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FruiBytesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FruiBytesModel.Context.cs</LastGenOutput>
+      <DependentUpon>FruiBytesModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="FruiBytesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FruiBytesModel.edmx</DependentUpon>
+      <LastGenOutput>FruiBytesModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

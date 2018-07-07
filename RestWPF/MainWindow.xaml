@@ -1,13 +1,21 @@
-﻿<Window x:Class="RestWPF.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" x:Class="RestWPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        DataContext="{Binding Main,Source={StaticResource Locator}}">
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        >
     <Grid>
 
-        <TextBlock Text="{Binding Name}" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <!--<TextBlock Text="{Binding Name}" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center"/>-->
+        <Viewer:CrystalReportsViewer
+            x:Name="crViewer"
+            HorizontalAlignment="Left"
+            Height="Auto" 
+            VerticalAlignment="Top" 
+            Width="Auto"/>
     </Grid>
 </Window>

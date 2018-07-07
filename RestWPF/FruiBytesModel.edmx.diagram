@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0de263d97613427f9e0b78f8c7aa233e" Name="Diagram1">
+        <EntityTypeShape EntityType="FruitBytesModel.BRAND" Width="1.5" PointX="5.25" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.CAT_TYPE_MASTER" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.CATEGORY" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.CUSTOMER_MASTER" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.CUSTOMER_PRODUCT_RATE_MASTER" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.LOGIN" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.MANUFACT" Width="1.5" PointX="3" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.PAYMENT_MASTER" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.POS_HEADER" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.PRODUCT_MASTER" Width="1.5" PointX="5.25" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.PUR_DET" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.PUR_HDR" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.STOCK_SUMMARY" Width="1.5" PointX="7.5" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.SUB_CATEGORY" Width="1.5" PointX="3" PointY="46.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.SUPPLIER_MASTER" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.SUPPLIER_RATE_MASTER" Width="1.5" PointX="7.5" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.POS_DETAIL" Width="1.5" PointX="7.5" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.POS_PAYMENT" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FruitBytesModel.STOCK_LEDGER" Width="1.5" PointX="7.5" PointY="39.75" IsExpanded="true" />
+        <AssociationConnector Association="FruitBytesModel.FK_BRANDS_MANUFACT" ManuallyRouted="false" />
+        <AssociationConnector Association="FruitBytesModel.FK_PRODUCT_MASTER_CATEGORY" ManuallyRouted="false" />
+        <AssociationConnector Association="FruitBytesModel.FK_SUB_CATEGORY_CATEGORY" ManuallyRouted="false" />
+        <AssociationConnector Association="FruitBytesModel.FK_CUSTOMER_PRODUCT_RATE_MASTER_CUSTOMER_MASTER" ManuallyRouted="false" />
+        <AssociationConnector Association="FruitBytesModel.FK_PRODUCT_MASTER_MANUFACT" ManuallyRouted="false" />
+        <AssociationConnector Association="FruitBytesModel.FK_POS_DETAIL_PRODUCT_MASTER" ManuallyRouted="false" />
+        <AssociationConnector Association="FruitBytesModel.FK_PRODUCT_MASTER_PRODUCT_MASTER" ManuallyRouted="false" />
+        <AssociationConnector Association="FruitBytesModel.FK_PRODUCT_MASTER_SUB_CATEGORY" ManuallyRouted="false" />
+        <AssociationConnector Association="FruitBytesModel.FK_STOCK_LEDGER_PRODUCT_MASTER" ManuallyRouted="false" />
+        <AssociationConnector Association="FruitBytesModel.FK_STOCK_SUMMARY_PRODUCT_MASTER" ManuallyRouted="false" />
+        <AssociationConnector Association="FruitBytesModel.FK_SUPPLIER_RATE_MASTER_PRODUCT_MASTER" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,2261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FruitBytesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BRANDS">
+          <Key>
+            <PropertyRef Name="BRAND_CODE" />
+          </Key>
+          <Property Name="BRAND_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BRAND_NAME" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="MANU_CODE" Type="int" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAT_TYPE_MASTER">
+          <Key>
+            <PropertyRef Name="CAT_TYPE_CODE" />
+          </Key>
+          <Property Name="CAT_TYPE_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAT_TYPE_DESCRIPTION" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATE_BY" Type="int" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="CAT_CODE" />
+          </Key>
+          <Property Name="CAT_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAT_NAM" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATE_BY" Type="int" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_MASTER">
+          <Key>
+            <PropertyRef Name="CUSTID" />
+          </Key>
+          <Property Name="CUSTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CUST_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="CUST_ADD1" Type="nvarchar" MaxLength="50" />
+          <Property Name="CUST_ADD2" Type="nvarchar" MaxLength="50" />
+          <Property Name="CUST_ADD3" Type="nvarchar" MaxLength="50" />
+          <Property Name="CUST_ADD4" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONTACT_NOS" Type="nvarchar" MaxLength="50" />
+          <Property Name="CUST_EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="BIRTH_DATE" Type="date" />
+          <Property Name="JOIN_DATE" Type="date" />
+          <Property Name="CUST_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="REMARK" Type="varchar" MaxLength="50" />
+          <Property Name="LOGIN_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="LOCALITY" Type="varchar" MaxLength="50" />
+          <Property Name="LANDMARK" Type="varchar" MaxLength="50" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="CUST_GROUP" Type="varchar" MaxLength="50" />
+          <Property Name="BARCODE" Type="varchar" MaxLength="50" />
+          <Property Name="ANNIV_DATE" Type="date" />
+          <Property Name="DEACT_DATE" Type="date" />
+          <Property Name="DEACT_REASON" Type="varchar" MaxLength="50" />
+          <Property Name="LAST_SALE_DATE" Type="date" />
+          <Property Name="MTD_NET_SALE" Type="int" />
+          <Property Name="CUST_TITLE" Type="varchar" MaxLength="50" />
+          <Property Name="GENDER" Type="varchar" MaxLength="50" />
+          <Property Name="MTH_AVG_SALE" Type="int" />
+          <Property Name="MTH_CYCLE_ST_DATE" Type="date" />
+          <Property Name="INTRO_BY" Type="varchar" MaxLength="50" />
+          <Property Name="MOB_NO" Type="varchar" MaxLength="50" />
+          <Property Name="CUST_ADD5" Type="varchar" MaxLength="50" />
+          <Property Name="CUST_ADD6" Type="varchar" MaxLength="50" />
+          <Property Name="SUB_AREA" Type="varchar" MaxLength="50" />
+          <Property Name="CITY" Type="varchar" MaxLength="50" />
+          <Property Name="PIN_CODE" Type="int" />
+          <Property Name="STATE_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="TEXT_ADDRESS" Type="varchar" MaxLength="50" />
+          <Property Name="SEND_OFFERS_VIA" Type="varchar" MaxLength="50" />
+          <Property Name="SEND_CONFIRM_VIA" Type="varchar" MaxLength="50" />
+          <Property Name="REF_CUSTID" Type="int" />
+          <Property Name="SOURCE_AWARNESS" Type="varchar" MaxLength="500" />
+          <Property Name="WEB_PASSWORD" Type="varchar" MaxLength="500" />
+          <Property Name="ALTERNATE_EMAIL" Type="varchar" MaxLength="500" />
+          <Property Name="CUST_SOCIETY" Type="int" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PRODUCT_RATE_MASTER">
+          <Key>
+            <PropertyRef Name="CUST_PROD_RATE_ID" />
+          </Key>
+          <Property Name="CUST_PROD_RATE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="P_CODE" Type="int" Nullable="false" />
+          <Property Name="CUST_ID" Type="int" />
+          <Property Name="SGCODE" Type="int" />
+          <Property Name="CUST_SGCODE" Type="varchar" MaxLength="50" />
+          <Property Name="SALE_CALC_ON" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SALE_CALC_PER" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="SALE_CALC_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="DF_SAL_RATE" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="CUST_P_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="MAIN_QTY" Type="int" />
+          <Property Name="FREE_QTY" Type="int" />
+          <Property Name="FREE_PCODE" Type="int" />
+          <Property Name="CASH_DISC_PER" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="NORMAL_LEAD_TIME" Type="int" Nullable="false" />
+          <Property Name="MAX_LEAD_TIME" Type="int" />
+          <Property Name="BATCH_QTY" Type="int" Nullable="false" />
+          <Property Name="MIN_ORDER_BATCH" Type="int" Nullable="false" />
+          <Property Name="NARRATION" Type="varchar" MaxLength="100" />
+          <Property Name="TAX_CODE" Type="int" />
+          <Property Name="APMC_PER" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="OCTROI_PER" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="CONTAINOR_CHARGES" Type="int" />
+          <Property Name="HANDLING_FREIGHT_CHARGES" Type="int" />
+          <Property Name="OTHER_CHARGES" Type="int" />
+          <Property Name="ST_DATE" Type="date" />
+          <Property Name="END_DATE" Type="date" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LOGIN">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="MANUFACT">
+          <Key>
+            <PropertyRef Name="MANU_CODE" />
+          </Key>
+          <Property Name="MANU_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MANU_NAME" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="MANU_SHORT_NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAYMENT_MASTER">
+          <Key>
+            <PropertyRef Name="PMT_TYPE" />
+          </Key>
+          <Property Name="PMT_TYPE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PMT_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+          <Property Name="ON_MRP" Type="varchar" MaxLength="50" />
+          <Property Name="ALLOW_MULTIPLE" Type="varchar" MaxLength="50" />
+          <Property Name="PMT_GROUP" Type="varchar" MaxLength="50" />
+          <Property Name="ONLINE_PMT" Type="varchar" MaxLength="50" />
+          <Property Name="CHARGES_AMT" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FruitBytes.dbo.POS_DETAIL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="POS_DETAIL">
+          <Key>
+            <PropertyRef Name="P_CODE" />
+            <PropertyRef Name="CREATE_BY" />
+            <PropertyRef Name="UPDTEA_BY" />
+            <PropertyRef Name="IS_ACTIVE" />
+          </Key>
+          <Property Name="V_NO" Type="int" />
+          <Property Name="DEP_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="P_CODE" Type="int" Nullable="false" />
+          <Property Name="BARCODE" Type="varchar" MaxLength="50" />
+          <Property Name="QTY" Type="int" />
+          <Property Name="RATE" Type="float" />
+          <Property Name="AMOUNT" Type="float" />
+          <Property Name="R_DOCTYPE" Type="varchar" MaxLength="50" />
+          <Property Name="R_LOTNO" Type="int" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDTEA_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="SRNO" Type="int" />
+          <Property Name="MRP" Type="int" />
+          <Property Name="SCHEME_DISC" Type="int" />
+          <Property Name="BILL_DISC" Type="int" />
+          <Property Name="ITEM_TOT_AMT" Type="int" />
+          <Property Name="TAX_AMOUNT" Type="int" />
+          <Property Name="TAX_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="FREE_ITEM" Type="varchar" MaxLength="50" />
+          <Property Name="COST_RATE" Type="int" />
+          <Property Name="SCAN_INDICATOR" Type="varchar" MaxLength="50" />
+          <Property Name="SALESMAN_ID" Type="varchar" MaxLength="50" />
+          <Property Name="ACTION_IND" Type="varchar" MaxLength="50" />
+          <Property Name="DF_SALE_RATE" Type="int" />
+          <Property Name="CO_BATCH_NO" Type="varchar" MaxLength="50" />
+          <Property Name="EXPIRY_DATE" Type="date" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POS_HEADER">
+          <Key>
+            <PropertyRef Name="POS_HEADER_ID" />
+          </Key>
+          <Property Name="POS_HEADER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="V_NO" Type="int" />
+          <Property Name="DEP_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="V_DATE" Type="date" />
+          <Property Name="MAC_ID" Type="varchar" MaxLength="50" />
+          <Property Name="TOT_LINE_ITEMS" Type="int" />
+          <Property Name="ROUNDOFF" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="CUSTID" Type="int" />
+          <Property Name="DISCOUNT" Type="int" />
+          <Property Name="BILL_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="STAFF" Type="varchar" MaxLength="50" />
+          <Property Name="STAFF_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="IN_INV" Type="varchar" MaxLength="50" />
+          <Property Name="CUST" Type="int" />
+          <Property Name="HOME_DELIVERY" Type="varchar" MaxLength="50" />
+          <Property Name="TAX_CODE" Type="int" />
+          <Property Name="TAXABLE_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="TAX_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="TOT_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="SC_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="AMT_RECD" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="TOT_QTY" Type="int" />
+          <Property Name="ORD_ID" Type="int" />
+          <Property Name="SALESMAN_ID" Type="varchar" MaxLength="50" />
+          <Property Name="SCHEME_DISC" Type="float" />
+          <Property Name="BILL_SCH_DISC" Type="float" />
+          <Property Name="TOKEN_NO" Type="varchar" MaxLength="50" />
+          <Property Name="DISC_U_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="DELIV_UCODE" Type="varchar" MaxLength="50" />
+          <Property Name="DELIV_DATE" Type="date" />
+          <Property Name="NARRATION" Type="varchar" MaxLength="500" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FruitBytes.dbo.POS_PAYMENT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="POS_PAYMENT">
+          <Key>
+            <PropertyRef Name="POS_PAYMENT_ID" />
+            <PropertyRef Name="V_NO" />
+            <PropertyRef Name="CREATE_BY" />
+            <PropertyRef Name="UPDATE_BY" />
+          </Key>
+          <Property Name="POS_PAYMENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="V_NO" Type="int" Nullable="false" />
+          <Property Name="PMT_TYPE" Type="int" />
+          <Property Name="PMT_CODE" Type="int" />
+          <Property Name="REFNO" Type="int" />
+          <Property Name="AMOUNT" Type="int" />
+          <Property Name="NARRATION" Type="varchar" MaxLength="100" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="PMT_REF" Type="varchar" MaxLength="50" />
+          <Property Name="PMT_CHRG" Type="int" />
+        </EntityType>
+        <EntityType Name="PRODUCT_MASTER">
+          <Key>
+            <PropertyRef Name="P_CODE" />
+          </Key>
+          <Property Name="P_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="P_NAME" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="P_DESCRIPTION" Type="varchar" MaxLength="900" Nullable="false" />
+          <Property Name="P_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="REF_P_CODE" Type="int" />
+          <Property Name="CAT_CODE" Type="int" Nullable="false" />
+          <Property Name="SUB_CAT_CODE" Type="int" Nullable="false" />
+          <Property Name="BARCODE" Type="varchar" MaxLength="50" />
+          <Property Name="BRAND_CODE" Type="int" Nullable="false" />
+          <Property Name="CLASS_CODE" Type="int" />
+          <Property Name="PK_SIZE" Type="int" />
+          <Property Name="UNIT" Type="varchar" MaxLength="50" />
+          <Property Name="PK_FORM" Type="varchar" MaxLength="50" />
+          <Property Name="PRE_BAR_CODED" Type="varchar" MaxLength="50" />
+          <Property Name="TAXABLE" Type="varchar" MaxLength="50" />
+          <Property Name="QTY_PUR_PK" Type="int" Nullable="false" />
+          <Property Name="PK_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="int" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+          <Property Name="MANU_CODE" Type="int" Nullable="false" />
+          <Property Name="P_IN_INV" Type="varchar" MaxLength="50" />
+          <Property Name="CAT_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="50" />
+          <Property Name="CREATED_ON" Type="date" />
+          <Property Name="EXPIRY_DATE_COMPULSORY" Type="varchar" MaxLength="50" />
+          <Property Name="INNER_PACK_SIZE" Type="varchar" MaxLength="50" />
+          <Property Name="DEACT_DATE" Type="date" />
+          <Property Name="DEACT_REASON" Type="varchar" MaxLength="50" />
+          <Property Name="TOLERABLE_EXP_DATE_DM" Type="varchar" MaxLength="50" />
+          <Property Name="TOLERABLE_EXP_DATE_PERIOD" Type="int" />
+          <Property Name="CO_BATCH_NO_REQUIRED" Type="varchar" MaxLength="50" />
+          <Property Name="RATE_ENTERABLE" Type="varchar" MaxLength="50" />
+          <Property Name="CARTON_INFO_REQUIRED" Type="varchar" MaxLength="50" />
+          <Property Name="SUPPLY_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="MRP_BASED" Type="varchar" MaxLength="50" />
+          <Property Name="NET_CASE_WEIGHT" Type="int" />
+          <Property Name="MARKUP_IND" Type="varchar" MaxLength="50" />
+          <Property Name="MARKDOWN_IND" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PUR_DET">
+          <Key>
+            <PropertyRef Name="LOTNO" />
+          </Key>
+          <Property Name="LOTNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="P_CODE" Type="int" />
+          <Property Name="NO_OF_PKS" Type="int" Nullable="false" />
+          <Property Name="QTY_PUR_PK" Type="int" Nullable="false" />
+          <Property Name="BILL_QTY" Type="int" Nullable="false" />
+          <Property Name="R_QTY" Type="int" Nullable="false" />
+          <Property Name="BILL_RATE" Type="int" Nullable="false" />
+          <Property Name="BILL_GROSS_AMT" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="R_GROSS_AMT" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="P_DISCOUNT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="TAX_CODE" Type="int" Nullable="false" />
+          <Property Name="TAX_AMT" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="ADJ_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="PUR_AMT" Type="int" />
+          <Property Name="PUR_CODE" Type="int" />
+          <Property Name="LANDING_COST" Type="int" />
+          <Property Name="MRP" Type="int" Nullable="false" />
+          <Property Name="SELLING_RATE" Type="int" />
+          <Property Name="PK_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="PK_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="PK_TYPE_NOS" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="EXPIRY_DATE" Type="date" />
+          <Property Name="NARRATION" Type="varchar" MaxLength="100" />
+          <Property Name="CO_BATCH_NO" Type="varchar" MaxLength="100" />
+          <Property Name="BARCODE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SPL_DISCOUNT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="OTH_DISCOUNT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="DISC_RETAINED" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="DISC_PASSED" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="ST_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="SC_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="TOT_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="OCTROI_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="APMC_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="CONT_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="HANDLING_FREIGHT_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="OTHER_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="FREE_PCODE" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="FREE_QTY" Type="int" />
+          <Property Name="SRNO" Type="int" />
+          <Property Name="V_NO" Type="int" />
+          <Property Name="SCHEME_NARRATION" Type="varchar" MaxLength="500" />
+          <Property Name="SALE_TYPE" Type="int" />
+          <Property Name="DEP_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="SUPP_LAMT" Type="int" />
+          <Property Name="CARTON_CODE" Type="varchar" MaxLength="500" />
+          <Property Name="ALLOC_QTY" Type="int" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="PUR_HDR">
+          <Key>
+            <PropertyRef Name="V_NO" />
+          </Key>
+          <Property Name="V_NO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SUPP_CODE" Type="int" Nullable="false" />
+          <Property Name="V_DATE" Type="date" Nullable="false" />
+          <Property Name="GROSS_AMT" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="DISCOUNT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="ST_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="OCTROI_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="TOT_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="SC_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="APMC_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="ROUND_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="CONT_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="PUR_AMT" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="SALE_AMT" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="CR_DAYS" Type="int" />
+          <Property Name="BILLNO" Type="varchar" MaxLength="500" />
+          <Property Name="BILL_DATE" Type="date" />
+          <Property Name="DC_NO" Type="varchar" MaxLength="50" />
+          <Property Name="DC_DATE" Type="date" />
+          <Property Name="PO_NO" Type="varchar" MaxLength="50" />
+          <Property Name="PO_DATE" Type="date" />
+          <Property Name="AUTH_FLG" Type="varchar" MaxLength="50" />
+          <Property Name="AUTH_UCODE" Type="varchar" MaxLength="500" />
+          <Property Name="AUTH_DATE" Type="date" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+          <Property Name="NARRATION" Type="varchar" MaxLength="2000" />
+          <Property Name="SPL_DISCOUNT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="OTH_DISCOUNT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="DISC_RETAINED" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="DISC_PASSED" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="HANDLING_FREIGHT_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="OTHER_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="CONSIGNMENT" Type="varchar" MaxLength="50" />
+          <Property Name="PUR_RET_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="NET_PAYABLE_AMT" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="UPD_UCODE" Type="varchar" MaxLength="200" />
+          <Property Name="UPD_TDATE" Type="date" />
+          <Property Name="TAX_INVOICE" Type="varchar" MaxLength="50" />
+          <Property Name="FORM_TYPE" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'FruitBytes.dbo.STOCK_LEDGER' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="STOCK_LEDGER">
+          <Key>
+            <PropertyRef Name="BR_CODE" />
+            <PropertyRef Name="DEP_CODE" />
+            <PropertyRef Name="DOC_TYPE" />
+            <PropertyRef Name="DOCNO" />
+            <PropertyRef Name="P_CODE" />
+            <PropertyRef Name="RI" />
+            <PropertyRef Name="V_DATE" />
+            <PropertyRef Name="R_LOTNO" />
+            <PropertyRef Name="INV_QTY" />
+            <PropertyRef Name="RATE" />
+            <PropertyRef Name="AMOUNT" />
+            <PropertyRef Name="REFNO" />
+            <PropertyRef Name="SALE_RATE" />
+            <PropertyRef Name="CO_BATCH_NO" />
+            <PropertyRef Name="CREATE_BY" />
+            <PropertyRef Name="UPDATE_BY" />
+            <PropertyRef Name="IS_ACTIVE" />
+          </Key>
+          <Property Name="BR_CODE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DEP_CODE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOC_TYPE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOCNO" Type="int" Nullable="false" />
+          <Property Name="P_CODE" Type="int" Nullable="false" />
+          <Property Name="RI" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="V_DATE" Type="date" Nullable="false" />
+          <Property Name="R_LOTNO" Type="int" Nullable="false" />
+          <Property Name="INV_QTY" Type="int" Nullable="false" />
+          <Property Name="RATE" Type="int" Nullable="false" />
+          <Property Name="AMOUNT" Type="int" Nullable="false" />
+          <Property Name="REFNO" Type="int" Nullable="false" />
+          <Property Name="PARTY_CODE" Type="int" />
+          <Property Name="OT_BR_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="OT_DEP_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="SALE_RATE" Type="int" Nullable="false" />
+          <Property Name="TRF_RET_DAMAGE" Type="varchar" MaxLength="50" />
+          <Property Name="CO_BATCH_NO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MRP" Type="int" />
+          <Property Name="TAX_CODE" Type="int" />
+          <Property Name="TAX_AMT" Type="int" />
+          <Property Name="DROP_SHIP" Type="int" />
+          <Property Name="DF_SALE_RATE" Type="int" />
+          <Property Name="COGS_VAT_AMT" Type="int" />
+          <Property Name="NET_SALE_VALUE" Type="int" />
+          <Property Name="SUPP_CODE" Type="int" />
+          <Property Name="T_DATE" Type="date" />
+          <Property Name="CASE_WEIGHT" Type="int" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STOCK_SUMMARY">
+          <Key>
+            <PropertyRef Name="LOTNO" />
+          </Key>
+          <Property Name="LOTNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DEP_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="P_CODE" Type="int" />
+          <Property Name="DOC_TYPE" Type="varbinary" MaxLength="50" />
+          <Property Name="REF_DATE" Type="date" />
+          <Property Name="REC_QTY" Type="int" />
+          <Property Name="INT_TRF_IN_QTY" Type="int" />
+          <Property Name="OTH_IN_QTY" Type="int" />
+          <Property Name="SALE_QTY" Type="int" />
+          <Property Name="INT_TRF_OUT_QTY" Type="int" />
+          <Property Name="EXT_TRF_OUT_QTY" Type="int" />
+          <Property Name="OTH_OUT_QTY" Type="int" />
+          <Property Name="BAL_QTY" Type="int" />
+          <Property Name="COST_RATE" Type="int" />
+          <Property Name="DF_SALE_RATE" Type="int" Nullable="false" />
+          <Property Name="RT_CHG_DOCNO" Type="int" />
+          <Property Name="SALE_UPD_DATE" Type="date" />
+          <Property Name="LAST_UPD_DATE" Type="date" />
+          <Property Name="MRP" Type="int" />
+          <Property Name="CO_BATCH_NO" Type="varchar" MaxLength="50" />
+          <Property Name="EXPIRY_DATE" Type="date" />
+          <Property Name="SUPP_CODE" Type="int" />
+          <Property Name="SALE_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="SCHEME_NARRATION" Type="varchar" MaxLength="50" />
+          <Property Name="TAX_CODE" Type="int" />
+          <Property Name="TAX_AMT" Type="int" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="IS_ACTIVE" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="SUB_CATEGORY">
+          <Key>
+            <PropertyRef Name="SUB_CAT_CODE" />
+          </Key>
+          <Property Name="SUB_CAT_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SUB_CAT_NAME" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CAT_COD" Type="int" Nullable="false" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUPPLIER_MASTER">
+          <Key>
+            <PropertyRef Name="SUPP_CODE" />
+          </Key>
+          <Property Name="SUPP_CODE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SUPP_NAME" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="UPDATE_BY" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" Nullable="false" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+          <Property Name="CHEQUE_NAME" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="ORDER_BY" Type="int" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="500" />
+          <Property Name="CITY" Type="varchar" MaxLength="100" />
+          <Property Name="STATE_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="COUNTRY_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="PIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="TEL1" Type="nvarchar" MaxLength="50" />
+          <Property Name="TEL2" Type="nvarchar" MaxLength="50" />
+          <Property Name="FAX" Type="nvarchar" MaxLength="50" />
+          <Property Name="CPERSON" Type="varchar" MaxLength="500" />
+          <Property Name="TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="CRDAYS" Type="int" />
+          <Property Name="CRLIMIT" Type="int" />
+          <Property Name="GST_NO" Type="varchar" MaxLength="50" />
+          <Property Name="CREATED_BY" Type="varchar" MaxLength="50" />
+          <Property Name="CREATED_ON" Type="date" />
+        </EntityType>
+        <EntityType Name="SUPPLIER_RATE_MASTER">
+          <Key>
+            <PropertyRef Name="SUPP_RATE_ID" />
+          </Key>
+          <Property Name="SUPP_RATE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SUPP_CODE" Type="int" />
+          <Property Name="P_CODE" Type="int" Nullable="false" />
+          <Property Name="SUPP_PRODUC_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="NORMAL_LEAD_TIME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAX_LEAD_TIME" Type="int" />
+          <Property Name="BATCH_QTY" Type="int" Nullable="false" />
+          <Property Name="MIN_ORDER_BATCH" Type="int" Nullable="false" />
+          <Property Name="RATE" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="MRP" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="ST_DATE" Type="date" />
+          <Property Name="END_DATE" Type="date" />
+          <Property Name="CREATE_BY" Type="int" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDATE_BY" Type="int" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="IS_ACTIVE" Type="tinyint" Nullable="false" />
+          <Property Name="NARRATION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_BRANDS_MANUFACT">
+          <End Role="MANUFACT" Type="Self.MANUFACT" Multiplicity="1" />
+          <End Role="BRANDS" Type="Self.BRANDS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANUFACT">
+              <PropertyRef Name="MANU_CODE" />
+            </Principal>
+            <Dependent Role="BRANDS">
+              <PropertyRef Name="MANU_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PRODUCT_RATE_MASTER_CUSTOMER_MASTER">
+          <End Role="CUSTOMER_MASTER" Type="Self.CUSTOMER_MASTER" Multiplicity="0..1" />
+          <End Role="CUSTOMER_PRODUCT_RATE_MASTER" Type="Self.CUSTOMER_PRODUCT_RATE_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_MASTER">
+              <PropertyRef Name="CUSTID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PRODUCT_RATE_MASTER">
+              <PropertyRef Name="CUST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POS_DETAIL_PRODUCT_MASTER">
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="1" />
+          <End Role="POS_DETAIL" Type="Self.POS_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Principal>
+            <Dependent Role="POS_DETAIL">
+              <PropertyRef Name="P_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_MASTER_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="CAT_CODE" />
+            </Principal>
+            <Dependent Role="PRODUCT_MASTER">
+              <PropertyRef Name="CAT_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_MASTER_MANUFACT">
+          <End Role="MANUFACT" Type="Self.MANUFACT" Multiplicity="1" />
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANUFACT">
+              <PropertyRef Name="MANU_CODE" />
+            </Principal>
+            <Dependent Role="PRODUCT_MASTER">
+              <PropertyRef Name="MANU_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_MASTER_PRODUCT_MASTER">
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="1" />
+          <End Role="PRODUCT_MASTER1" Type="Self.PRODUCT_MASTER" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Principal>
+            <Dependent Role="PRODUCT_MASTER1">
+              <PropertyRef Name="P_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_MASTER_SUB_CATEGORY">
+          <End Role="SUB_CATEGORY" Type="Self.SUB_CATEGORY" Multiplicity="1" />
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUB_CATEGORY">
+              <PropertyRef Name="SUB_CAT_CODE" />
+            </Principal>
+            <Dependent Role="PRODUCT_MASTER">
+              <PropertyRef Name="SUB_CAT_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCK_LEDGER_PRODUCT_MASTER">
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="1" />
+          <End Role="STOCK_LEDGER" Type="Self.STOCK_LEDGER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Principal>
+            <Dependent Role="STOCK_LEDGER">
+              <PropertyRef Name="P_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCK_SUMMARY_PRODUCT_MASTER">
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="0..1" />
+          <End Role="STOCK_SUMMARY" Type="Self.STOCK_SUMMARY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Principal>
+            <Dependent Role="STOCK_SUMMARY">
+              <PropertyRef Name="P_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUB_CATEGORY_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
+          <End Role="SUB_CATEGORY" Type="Self.SUB_CATEGORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="CAT_CODE" />
+            </Principal>
+            <Dependent Role="SUB_CATEGORY">
+              <PropertyRef Name="CAT_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUPPLIER_RATE_MASTER_PRODUCT_MASTER">
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="1" />
+          <End Role="SUPPLIER_RATE_MASTER" Type="Self.SUPPLIER_RATE_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Principal>
+            <Dependent Role="SUPPLIER_RATE_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FruitBytesModelStoreContainer">
+          <EntitySet Name="BRANDS" EntityType="Self.BRANDS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CAT_TYPE_MASTER" EntityType="Self.CAT_TYPE_MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_MASTER" EntityType="Self.CUSTOMER_MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER_PRODUCT_RATE_MASTER" EntityType="Self.CUSTOMER_PRODUCT_RATE_MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGIN" EntityType="Self.LOGIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MANUFACT" EntityType="Self.MANUFACT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAYMENT_MASTER" EntityType="Self.PAYMENT_MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POS_HEADER" EntityType="Self.POS_HEADER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT_MASTER" EntityType="Self.PRODUCT_MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PUR_DET" EntityType="Self.PUR_DET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PUR_HDR" EntityType="Self.PUR_HDR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOCK_SUMMARY" EntityType="Self.STOCK_SUMMARY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUB_CATEGORY" EntityType="Self.SUB_CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUPPLIER_MASTER" EntityType="Self.SUPPLIER_MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUPPLIER_RATE_MASTER" EntityType="Self.SUPPLIER_RATE_MASTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POS_DETAIL" EntityType="Self.POS_DETAIL" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[POS_DETAIL].[V_NO] AS [V_NO], 
+[POS_DETAIL].[DEP_CODE] AS [DEP_CODE], 
+[POS_DETAIL].[P_CODE] AS [P_CODE], 
+[POS_DETAIL].[BARCODE] AS [BARCODE], 
+[POS_DETAIL].[QTY] AS [QTY], 
+[POS_DETAIL].[RATE] AS [RATE], 
+[POS_DETAIL].[AMOUNT] AS [AMOUNT], 
+[POS_DETAIL].[R_DOCTYPE] AS [R_DOCTYPE], 
+[POS_DETAIL].[R_LOTNO] AS [R_LOTNO], 
+[POS_DETAIL].[CREATE_BY] AS [CREATE_BY], 
+[POS_DETAIL].[CREATE_DATE] AS [CREATE_DATE], 
+[POS_DETAIL].[UPDTEA_BY] AS [UPDTEA_BY], 
+[POS_DETAIL].[UPDATE_DATE] AS [UPDATE_DATE], 
+[POS_DETAIL].[SRNO] AS [SRNO], 
+[POS_DETAIL].[MRP] AS [MRP], 
+[POS_DETAIL].[SCHEME_DISC] AS [SCHEME_DISC], 
+[POS_DETAIL].[BILL_DISC] AS [BILL_DISC], 
+[POS_DETAIL].[ITEM_TOT_AMT] AS [ITEM_TOT_AMT], 
+[POS_DETAIL].[TAX_AMOUNT] AS [TAX_AMOUNT], 
+[POS_DETAIL].[TAX_CODE] AS [TAX_CODE], 
+[POS_DETAIL].[FREE_ITEM] AS [FREE_ITEM], 
+[POS_DETAIL].[COST_RATE] AS [COST_RATE], 
+[POS_DETAIL].[SCAN_INDICATOR] AS [SCAN_INDICATOR], 
+[POS_DETAIL].[SALESMAN_ID] AS [SALESMAN_ID], 
+[POS_DETAIL].[ACTION_IND] AS [ACTION_IND], 
+[POS_DETAIL].[DF_SALE_RATE] AS [DF_SALE_RATE], 
+[POS_DETAIL].[CO_BATCH_NO] AS [CO_BATCH_NO], 
+[POS_DETAIL].[EXPIRY_DATE] AS [EXPIRY_DATE], 
+[POS_DETAIL].[IS_ACTIVE] AS [IS_ACTIVE]
+FROM [dbo].[POS_DETAIL] AS [POS_DETAIL]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="POS_PAYMENT" EntityType="Self.POS_PAYMENT" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[POS_PAYMENT].[POS_PAYMENT_ID] AS [POS_PAYMENT_ID], 
+[POS_PAYMENT].[V_NO] AS [V_NO], 
+[POS_PAYMENT].[PMT_TYPE] AS [PMT_TYPE], 
+[POS_PAYMENT].[PMT_CODE] AS [PMT_CODE], 
+[POS_PAYMENT].[REFNO] AS [REFNO], 
+[POS_PAYMENT].[AMOUNT] AS [AMOUNT], 
+[POS_PAYMENT].[NARRATION] AS [NARRATION], 
+[POS_PAYMENT].[CREATE_BY] AS [CREATE_BY], 
+[POS_PAYMENT].[CREATE_DATE] AS [CREATE_DATE], 
+[POS_PAYMENT].[UPDATE_BY] AS [UPDATE_BY], 
+[POS_PAYMENT].[UPDATE_DATE] AS [UPDATE_DATE], 
+[POS_PAYMENT].[PMT_REF] AS [PMT_REF], 
+[POS_PAYMENT].[PMT_CHRG] AS [PMT_CHRG]
+FROM [dbo].[POS_PAYMENT] AS [POS_PAYMENT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="STOCK_LEDGER" EntityType="Self.STOCK_LEDGER" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[STOCK_LEDGER].[BR_CODE] AS [BR_CODE], 
+[STOCK_LEDGER].[DEP_CODE] AS [DEP_CODE], 
+[STOCK_LEDGER].[DOC_TYPE] AS [DOC_TYPE], 
+[STOCK_LEDGER].[DOCNO] AS [DOCNO], 
+[STOCK_LEDGER].[P_CODE] AS [P_CODE], 
+[STOCK_LEDGER].[RI] AS [RI], 
+[STOCK_LEDGER].[V_DATE] AS [V_DATE], 
+[STOCK_LEDGER].[R_LOTNO] AS [R_LOTNO], 
+[STOCK_LEDGER].[INV_QTY] AS [INV_QTY], 
+[STOCK_LEDGER].[RATE] AS [RATE], 
+[STOCK_LEDGER].[AMOUNT] AS [AMOUNT], 
+[STOCK_LEDGER].[REFNO] AS [REFNO], 
+[STOCK_LEDGER].[PARTY_CODE] AS [PARTY_CODE], 
+[STOCK_LEDGER].[OT_BR_CODE] AS [OT_BR_CODE], 
+[STOCK_LEDGER].[OT_DEP_CODE] AS [OT_DEP_CODE], 
+[STOCK_LEDGER].[SALE_RATE] AS [SALE_RATE], 
+[STOCK_LEDGER].[TRF_RET_DAMAGE] AS [TRF_RET_DAMAGE], 
+[STOCK_LEDGER].[CO_BATCH_NO] AS [CO_BATCH_NO], 
+[STOCK_LEDGER].[MRP] AS [MRP], 
+[STOCK_LEDGER].[TAX_CODE] AS [TAX_CODE], 
+[STOCK_LEDGER].[TAX_AMT] AS [TAX_AMT], 
+[STOCK_LEDGER].[DROP_SHIP] AS [DROP_SHIP], 
+[STOCK_LEDGER].[DF_SALE_RATE] AS [DF_SALE_RATE], 
+[STOCK_LEDGER].[COGS_VAT_AMT] AS [COGS_VAT_AMT], 
+[STOCK_LEDGER].[NET_SALE_VALUE] AS [NET_SALE_VALUE], 
+[STOCK_LEDGER].[SUPP_CODE] AS [SUPP_CODE], 
+[STOCK_LEDGER].[T_DATE] AS [T_DATE], 
+[STOCK_LEDGER].[CASE_WEIGHT] AS [CASE_WEIGHT], 
+[STOCK_LEDGER].[CREATE_BY] AS [CREATE_BY], 
+[STOCK_LEDGER].[CREATE_DATE] AS [CREATE_DATE], 
+[STOCK_LEDGER].[UPDATE_BY] AS [UPDATE_BY], 
+[STOCK_LEDGER].[UPDATE_DATE] AS [UPDATE_DATE], 
+[STOCK_LEDGER].[IS_ACTIVE] AS [IS_ACTIVE]
+FROM [dbo].[STOCK_LEDGER] AS [STOCK_LEDGER]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BRANDS_MANUFACT" Association="Self.FK_BRANDS_MANUFACT">
+            <End Role="MANUFACT" EntitySet="MANUFACT" />
+            <End Role="BRANDS" EntitySet="BRANDS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PRODUCT_RATE_MASTER_CUSTOMER_MASTER" Association="Self.FK_CUSTOMER_PRODUCT_RATE_MASTER_CUSTOMER_MASTER">
+            <End Role="CUSTOMER_MASTER" EntitySet="CUSTOMER_MASTER" />
+            <End Role="CUSTOMER_PRODUCT_RATE_MASTER" EntitySet="CUSTOMER_PRODUCT_RATE_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POS_DETAIL_PRODUCT_MASTER" Association="Self.FK_POS_DETAIL_PRODUCT_MASTER">
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+            <End Role="POS_DETAIL" EntitySet="POS_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_MASTER_CATEGORY" Association="Self.FK_PRODUCT_MASTER_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORY" />
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_MASTER_MANUFACT" Association="Self.FK_PRODUCT_MASTER_MANUFACT">
+            <End Role="MANUFACT" EntitySet="MANUFACT" />
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_MASTER_PRODUCT_MASTER" Association="Self.FK_PRODUCT_MASTER_PRODUCT_MASTER">
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+            <End Role="PRODUCT_MASTER1" EntitySet="PRODUCT_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_MASTER_SUB_CATEGORY" Association="Self.FK_PRODUCT_MASTER_SUB_CATEGORY">
+            <End Role="SUB_CATEGORY" EntitySet="SUB_CATEGORY" />
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCK_LEDGER_PRODUCT_MASTER" Association="Self.FK_STOCK_LEDGER_PRODUCT_MASTER">
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+            <End Role="STOCK_LEDGER" EntitySet="STOCK_LEDGER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCK_SUMMARY_PRODUCT_MASTER" Association="Self.FK_STOCK_SUMMARY_PRODUCT_MASTER">
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+            <End Role="STOCK_SUMMARY" EntitySet="STOCK_SUMMARY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUB_CATEGORY_CATEGORY" Association="Self.FK_SUB_CATEGORY_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORY" />
+            <End Role="SUB_CATEGORY" EntitySet="SUB_CATEGORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUPPLIER_RATE_MASTER_PRODUCT_MASTER" Association="Self.FK_SUPPLIER_RATE_MASTER_PRODUCT_MASTER">
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+            <End Role="SUPPLIER_RATE_MASTER" EntitySet="SUPPLIER_RATE_MASTER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FruitBytesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BRAND">
+          <Key>
+            <PropertyRef Name="BRAND_CODE" />
+          </Key>
+          <Property Name="BRAND_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BRAND_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MANU_CODE" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="MANUFACT" Relationship="Self.FK_BRANDS_MANUFACT" FromRole="BRANDS" ToRole="MANUFACT" />
+        </EntityType>
+        <EntityType Name="CAT_TYPE_MASTER">
+          <Key>
+            <PropertyRef Name="CAT_TYPE_CODE" />
+          </Key>
+          <Property Name="CAT_TYPE_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAT_TYPE_DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="CAT_CODE" />
+          </Key>
+          <Property Name="CAT_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAT_NAM" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="PRODUCT_MASTER" Relationship="Self.FK_PRODUCT_MASTER_CATEGORY" FromRole="CATEGORY" ToRole="PRODUCT_MASTER" />
+          <NavigationProperty Name="SUB_CATEGORY" Relationship="Self.FK_SUB_CATEGORY_CATEGORY" FromRole="CATEGORY" ToRole="SUB_CATEGORY" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_MASTER">
+          <Key>
+            <PropertyRef Name="CUSTID" />
+          </Key>
+          <Property Name="CUSTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CUST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUST_ADD1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CUST_ADD2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CUST_ADD3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CUST_ADD4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONTACT_NOS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CUST_EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BIRTH_DATE" Type="DateTime" Precision="0" />
+          <Property Name="JOIN_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CUST_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REMARK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOGIN_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LOCALITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LANDMARK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CUST_GROUP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ANNIV_DATE" Type="DateTime" Precision="0" />
+          <Property Name="DEACT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="DEACT_REASON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_SALE_DATE" Type="DateTime" Precision="0" />
+          <Property Name="MTD_NET_SALE" Type="Int32" />
+          <Property Name="CUST_TITLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GENDER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MTH_AVG_SALE" Type="Int32" />
+          <Property Name="MTH_CYCLE_ST_DATE" Type="DateTime" Precision="0" />
+          <Property Name="INTRO_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MOB_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUST_ADD5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUST_ADD6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUB_AREA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CITY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIN_CODE" Type="Int32" />
+          <Property Name="STATE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TEXT_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SEND_OFFERS_VIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SEND_CONFIRM_VIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REF_CUSTID" Type="Int32" />
+          <Property Name="SOURCE_AWARNESS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="WEB_PASSWORD" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ALTERNATE_EMAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CUST_SOCIETY" Type="Int32" />
+          <NavigationProperty Name="CUSTOMER_PRODUCT_RATE_MASTER" Relationship="Self.FK_CUSTOMER_PRODUCT_RATE_MASTER_CUSTOMER_MASTER" FromRole="CUSTOMER_MASTER" ToRole="CUSTOMER_PRODUCT_RATE_MASTER" />
+        </EntityType>
+        <EntityType Name="CUSTOMER_PRODUCT_RATE_MASTER">
+          <Key>
+            <PropertyRef Name="CUST_PROD_RATE_ID" />
+          </Key>
+          <Property Name="CUST_PROD_RATE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="P_CODE" Type="Int32" Nullable="false" />
+          <Property Name="CUST_ID" Type="Int32" />
+          <Property Name="SGCODE" Type="Int32" />
+          <Property Name="CUST_SGCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SALE_CALC_ON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SALE_CALC_PER" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="SALE_CALC_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="DF_SAL_RATE" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="CUST_P_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAIN_QTY" Type="Int32" />
+          <Property Name="FREE_QTY" Type="Int32" />
+          <Property Name="FREE_PCODE" Type="Int32" />
+          <Property Name="CASH_DISC_PER" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="NORMAL_LEAD_TIME" Type="Int32" Nullable="false" />
+          <Property Name="MAX_LEAD_TIME" Type="Int32" />
+          <Property Name="BATCH_QTY" Type="Int32" Nullable="false" />
+          <Property Name="MIN_ORDER_BATCH" Type="Int32" Nullable="false" />
+          <Property Name="NARRATION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TAX_CODE" Type="Int32" />
+          <Property Name="APMC_PER" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="OCTROI_PER" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="CONTAINOR_CHARGES" Type="Int32" />
+          <Property Name="HANDLING_FREIGHT_CHARGES" Type="Int32" />
+          <Property Name="OTHER_CHARGES" Type="Int32" />
+          <Property Name="ST_DATE" Type="DateTime" Precision="0" />
+          <Property Name="END_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="CUSTOMER_MASTER" Relationship="Self.FK_CUSTOMER_PRODUCT_RATE_MASTER_CUSTOMER_MASTER" FromRole="CUSTOMER_PRODUCT_RATE_MASTER" ToRole="CUSTOMER_MASTER" />
+        </EntityType>
+        <EntityType Name="LOGIN">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" />
+        </EntityType>
+        <EntityType Name="MANUFACT">
+          <Key>
+            <PropertyRef Name="MANU_CODE" />
+          </Key>
+          <Property Name="MANU_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MANU_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MANU_SHORT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="BRANDS" Relationship="Self.FK_BRANDS_MANUFACT" FromRole="MANUFACT" ToRole="BRANDS" />
+          <NavigationProperty Name="PRODUCT_MASTER" Relationship="Self.FK_PRODUCT_MASTER_MANUFACT" FromRole="MANUFACT" ToRole="PRODUCT_MASTER" />
+        </EntityType>
+        <EntityType Name="PAYMENT_MASTER">
+          <Key>
+            <PropertyRef Name="PMT_TYPE" />
+          </Key>
+          <Property Name="PMT_TYPE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PMT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <Property Name="ON_MRP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ALLOW_MULTIPLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PMT_GROUP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ONLINE_PMT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CHARGES_AMT" Type="Double" />
+        </EntityType>
+        <EntityType Name="POS_HEADER">
+          <Key>
+            <PropertyRef Name="POS_HEADER_ID" />
+          </Key>
+          <Property Name="POS_HEADER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="V_NO" Type="Int32" />
+          <Property Name="DEP_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="V_DATE" Type="DateTime" Precision="0" />
+          <Property Name="MAC_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOT_LINE_ITEMS" Type="Int32" />
+          <Property Name="ROUNDOFF" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="CUSTID" Type="Int32" />
+          <Property Name="DISCOUNT" Type="Int32" />
+          <Property Name="BILL_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="STAFF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STAFF_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IN_INV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUST" Type="Int32" />
+          <Property Name="HOME_DELIVERY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TAX_CODE" Type="Int32" />
+          <Property Name="TAXABLE_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="TAX_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="TOT_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="SC_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="AMT_RECD" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="TOT_QTY" Type="Int32" />
+          <Property Name="ORD_ID" Type="Int32" />
+          <Property Name="SALESMAN_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SCHEME_DISC" Type="Double" />
+          <Property Name="BILL_SCH_DISC" Type="Double" />
+          <Property Name="TOKEN_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DISC_U_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DELIV_UCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DELIV_DATE" Type="DateTime" Precision="0" />
+          <Property Name="NARRATION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCT_MASTER">
+          <Key>
+            <PropertyRef Name="P_CODE" />
+          </Key>
+          <Property Name="P_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="P_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="P_DESCRIPTION" Type="String" MaxLength="900" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="P_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REF_P_CODE" Type="Int32" />
+          <Property Name="CAT_CODE" Type="Int32" Nullable="false" />
+          <Property Name="SUB_CAT_CODE" Type="Int32" Nullable="false" />
+          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BRAND_CODE" Type="Int32" Nullable="false" />
+          <Property Name="CLASS_CODE" Type="Int32" />
+          <Property Name="PK_SIZE" Type="Int32" />
+          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PK_FORM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRE_BAR_CODED" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TAXABLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QTY_PUR_PK" Type="Int32" Nullable="false" />
+          <Property Name="PK_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="Int32" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <Property Name="MANU_CODE" Type="Int32" Nullable="false" />
+          <Property Name="P_IN_INV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_ON" Type="DateTime" Precision="0" />
+          <Property Name="EXPIRY_DATE_COMPULSORY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INNER_PACK_SIZE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DEACT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="DEACT_REASON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOLERABLE_EXP_DATE_DM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TOLERABLE_EXP_DATE_PERIOD" Type="Int32" />
+          <Property Name="CO_BATCH_NO_REQUIRED" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RATE_ENTERABLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CARTON_INFO_REQUIRED" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUPPLY_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MRP_BASED" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NET_CASE_WEIGHT" Type="Int32" />
+          <Property Name="MARKUP_IND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MARKDOWN_IND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CATEGORY" Relationship="Self.FK_PRODUCT_MASTER_CATEGORY" FromRole="PRODUCT_MASTER" ToRole="CATEGORY" />
+          <NavigationProperty Name="MANUFACT" Relationship="Self.FK_PRODUCT_MASTER_MANUFACT" FromRole="PRODUCT_MASTER" ToRole="MANUFACT" />
+          <NavigationProperty Name="POS_DETAIL" Relationship="Self.FK_POS_DETAIL_PRODUCT_MASTER" FromRole="PRODUCT_MASTER" ToRole="POS_DETAIL" />
+          <NavigationProperty Name="PRODUCT_MASTER1" Relationship="Self.FK_PRODUCT_MASTER_PRODUCT_MASTER" FromRole="PRODUCT_MASTER" ToRole="PRODUCT_MASTER1" />
+          <NavigationProperty Name="PRODUCT_MASTER2" Relationship="Self.FK_PRODUCT_MASTER_PRODUCT_MASTER" FromRole="PRODUCT_MASTER1" ToRole="PRODUCT_MASTER" />
+          <NavigationProperty Name="SUB_CATEGORY" Relationship="Self.FK_PRODUCT_MASTER_SUB_CATEGORY" FromRole="PRODUCT_MASTER" ToRole="SUB_CATEGORY" />
+          <NavigationProperty Name="STOCK_LEDGER" Relationship="Self.FK_STOCK_LEDGER_PRODUCT_MASTER" FromRole="PRODUCT_MASTER" ToRole="STOCK_LEDGER" />
+          <NavigationProperty Name="STOCK_SUMMARY" Relationship="Self.FK_STOCK_SUMMARY_PRODUCT_MASTER" FromRole="PRODUCT_MASTER" ToRole="STOCK_SUMMARY" />
+          <NavigationProperty Name="SUPPLIER_RATE_MASTER" Relationship="Self.FK_SUPPLIER_RATE_MASTER_PRODUCT_MASTER" FromRole="PRODUCT_MASTER" ToRole="SUPPLIER_RATE_MASTER" />
+        </EntityType>
+        <EntityType Name="PUR_DET">
+          <Key>
+            <PropertyRef Name="LOTNO" />
+          </Key>
+          <Property Name="LOTNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="P_CODE" Type="Int32" />
+          <Property Name="NO_OF_PKS" Type="Int32" Nullable="false" />
+          <Property Name="QTY_PUR_PK" Type="Int32" Nullable="false" />
+          <Property Name="BILL_QTY" Type="Int32" Nullable="false" />
+          <Property Name="R_QTY" Type="Int32" Nullable="false" />
+          <Property Name="BILL_RATE" Type="Int32" Nullable="false" />
+          <Property Name="BILL_GROSS_AMT" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="R_GROSS_AMT" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="P_DISCOUNT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="TAX_CODE" Type="Int32" Nullable="false" />
+          <Property Name="TAX_AMT" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="ADJ_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="PUR_AMT" Type="Int32" />
+          <Property Name="PUR_CODE" Type="Int32" />
+          <Property Name="LANDING_COST" Type="Int32" />
+          <Property Name="MRP" Type="Int32" Nullable="false" />
+          <Property Name="SELLING_RATE" Type="Int32" />
+          <Property Name="PK_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PK_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="PK_TYPE_NOS" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="EXPIRY_DATE" Type="DateTime" Precision="0" />
+          <Property Name="NARRATION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CO_BATCH_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SPL_DISCOUNT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="OTH_DISCOUNT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="DISC_RETAINED" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="DISC_PASSED" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="ST_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="SC_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="TOT_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="OCTROI_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="APMC_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="CONT_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="HANDLING_FREIGHT_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="OTHER_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="FREE_PCODE" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="FREE_QTY" Type="Int32" />
+          <Property Name="SRNO" Type="Int32" />
+          <Property Name="V_NO" Type="Int32" />
+          <Property Name="SCHEME_NARRATION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SALE_TYPE" Type="Int32" />
+          <Property Name="DEP_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUPP_LAMT" Type="Int32" />
+          <Property Name="CARTON_CODE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ALLOC_QTY" Type="Int32" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" />
+        </EntityType>
+        <EntityType Name="PUR_HDR">
+          <Key>
+            <PropertyRef Name="V_NO" />
+          </Key>
+          <Property Name="V_NO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SUPP_CODE" Type="Int32" Nullable="false" />
+          <Property Name="V_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GROSS_AMT" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="DISCOUNT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="ST_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="OCTROI_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="TOT_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="SC_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="APMC_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="ROUND_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="CONT_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="PUR_AMT" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="SALE_AMT" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="CR_DAYS" Type="Int32" />
+          <Property Name="BILLNO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BILL_DATE" Type="DateTime" Precision="0" />
+          <Property Name="DC_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DC_DATE" Type="DateTime" Precision="0" />
+          <Property Name="PO_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PO_DATE" Type="DateTime" Precision="0" />
+          <Property Name="AUTH_FLG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_UCODE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AUTH_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <Property Name="NARRATION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="SPL_DISCOUNT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="OTH_DISCOUNT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="DISC_RETAINED" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="DISC_PASSED" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="HANDLING_FREIGHT_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="OTHER_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="CONSIGNMENT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PUR_RET_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="NET_PAYABLE_AMT" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="UPD_UCODE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UPD_TDATE" Type="DateTime" Precision="0" />
+          <Property Name="TAX_INVOICE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FORM_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="STOCK_SUMMARY">
+          <Key>
+            <PropertyRef Name="LOTNO" />
+          </Key>
+          <Property Name="LOTNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DEP_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P_CODE" Type="Int32" />
+          <Property Name="DOC_TYPE" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="REF_DATE" Type="DateTime" Precision="0" />
+          <Property Name="REC_QTY" Type="Int32" />
+          <Property Name="INT_TRF_IN_QTY" Type="Int32" />
+          <Property Name="OTH_IN_QTY" Type="Int32" />
+          <Property Name="SALE_QTY" Type="Int32" />
+          <Property Name="INT_TRF_OUT_QTY" Type="Int32" />
+          <Property Name="EXT_TRF_OUT_QTY" Type="Int32" />
+          <Property Name="OTH_OUT_QTY" Type="Int32" />
+          <Property Name="BAL_QTY" Type="Int32" />
+          <Property Name="COST_RATE" Type="Int32" />
+          <Property Name="DF_SALE_RATE" Type="Int32" Nullable="false" />
+          <Property Name="RT_CHG_DOCNO" Type="Int32" />
+          <Property Name="SALE_UPD_DATE" Type="DateTime" Precision="0" />
+          <Property Name="LAST_UPD_DATE" Type="DateTime" Precision="0" />
+          <Property Name="MRP" Type="Int32" />
+          <Property Name="CO_BATCH_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXPIRY_DATE" Type="DateTime" Precision="0" />
+          <Property Name="SUPP_CODE" Type="Int32" />
+          <Property Name="SALE_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SCHEME_NARRATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TAX_CODE" Type="Int32" />
+          <Property Name="TAX_AMT" Type="Int32" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="0" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="0" />
+          <Property Name="IS_ACTIVE" Type="Byte" />
+          <NavigationProperty Name="PRODUCT_MASTER" Relationship="Self.FK_STOCK_SUMMARY_PRODUCT_MASTER" FromRole="STOCK_SUMMARY" ToRole="PRODUCT_MASTER" />
+        </EntityType>
+        <EntityType Name="SUB_CATEGORY">
+          <Key>
+            <PropertyRef Name="SUB_CAT_CODE" />
+          </Key>
+          <Property Name="SUB_CAT_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SUB_CAT_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CAT_COD" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="CATEGORY" Relationship="Self.FK_SUB_CATEGORY_CATEGORY" FromRole="SUB_CATEGORY" ToRole="CATEGORY" />
+          <NavigationProperty Name="PRODUCT_MASTER" Relationship="Self.FK_PRODUCT_MASTER_SUB_CATEGORY" FromRole="SUB_CATEGORY" ToRole="PRODUCT_MASTER" />
+        </EntityType>
+        <EntityType Name="SUPPLIER_MASTER">
+          <Key>
+            <PropertyRef Name="SUPP_CODE" />
+          </Key>
+          <Property Name="SUPP_CODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SUPP_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <Property Name="CHEQUE_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ORDER_BY" Type="Int32" />
+          <Property Name="ADDRESS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CITY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="STATE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTRY_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PIN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TEL1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TEL2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CPERSON" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CRDAYS" Type="Int32" />
+          <Property Name="CRLIMIT" Type="Int32" />
+          <Property Name="GST_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_ON" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="SUPPLIER_RATE_MASTER">
+          <Key>
+            <PropertyRef Name="SUPP_RATE_ID" />
+          </Key>
+          <Property Name="SUPP_RATE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SUPP_CODE" Type="Int32" />
+          <Property Name="P_CODE" Type="Int32" Nullable="false" />
+          <Property Name="SUPP_PRODUC_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NORMAL_LEAD_TIME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAX_LEAD_TIME" Type="Int32" />
+          <Property Name="BATCH_QTY" Type="Int32" Nullable="false" />
+          <Property Name="MIN_ORDER_BATCH" Type="Int32" Nullable="false" />
+          <Property Name="RATE" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="MRP" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="ST_DATE" Type="DateTime" Precision="0" />
+          <Property Name="END_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <Property Name="NARRATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRODUCT_MASTER" Relationship="Self.FK_SUPPLIER_RATE_MASTER_PRODUCT_MASTER" FromRole="SUPPLIER_RATE_MASTER" ToRole="PRODUCT_MASTER" />
+        </EntityType>
+        <EntityType Name="POS_DETAIL">
+          <Key>
+            <PropertyRef Name="P_CODE" />
+            <PropertyRef Name="CREATE_BY" />
+            <PropertyRef Name="UPDTEA_BY" />
+            <PropertyRef Name="IS_ACTIVE" />
+          </Key>
+          <Property Name="V_NO" Type="Int32" />
+          <Property Name="DEP_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P_CODE" Type="Int32" Nullable="false" />
+          <Property Name="BARCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QTY" Type="Int32" />
+          <Property Name="RATE" Type="Double" />
+          <Property Name="AMOUNT" Type="Double" />
+          <Property Name="R_DOCTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="R_LOTNO" Type="Int32" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDTEA_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="SRNO" Type="Int32" />
+          <Property Name="MRP" Type="Int32" />
+          <Property Name="SCHEME_DISC" Type="Int32" />
+          <Property Name="BILL_DISC" Type="Int32" />
+          <Property Name="ITEM_TOT_AMT" Type="Int32" />
+          <Property Name="TAX_AMOUNT" Type="Int32" />
+          <Property Name="TAX_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FREE_ITEM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COST_RATE" Type="Int32" />
+          <Property Name="SCAN_INDICATOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SALESMAN_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ACTION_IND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DF_SALE_RATE" Type="Int32" />
+          <Property Name="CO_BATCH_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXPIRY_DATE" Type="DateTime" Precision="0" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="PRODUCT_MASTER" Relationship="Self.FK_POS_DETAIL_PRODUCT_MASTER" FromRole="POS_DETAIL" ToRole="PRODUCT_MASTER" />
+        </EntityType>
+        <EntityType Name="POS_PAYMENT">
+          <Key>
+            <PropertyRef Name="POS_PAYMENT_ID" />
+            <PropertyRef Name="V_NO" />
+            <PropertyRef Name="CREATE_BY" />
+            <PropertyRef Name="UPDATE_BY" />
+          </Key>
+          <Property Name="POS_PAYMENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="V_NO" Type="Int32" Nullable="false" />
+          <Property Name="PMT_TYPE" Type="Int32" />
+          <Property Name="PMT_CODE" Type="Int32" />
+          <Property Name="REFNO" Type="Int32" />
+          <Property Name="AMOUNT" Type="Int32" />
+          <Property Name="NARRATION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="PMT_REF" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PMT_CHRG" Type="Int32" />
+        </EntityType>
+        <EntityType Name="STOCK_LEDGER">
+          <Key>
+            <PropertyRef Name="BR_CODE" />
+            <PropertyRef Name="DEP_CODE" />
+            <PropertyRef Name="DOC_TYPE" />
+            <PropertyRef Name="DOCNO" />
+            <PropertyRef Name="P_CODE" />
+            <PropertyRef Name="RI" />
+            <PropertyRef Name="V_DATE" />
+            <PropertyRef Name="R_LOTNO" />
+            <PropertyRef Name="INV_QTY" />
+            <PropertyRef Name="RATE" />
+            <PropertyRef Name="AMOUNT" />
+            <PropertyRef Name="REFNO" />
+            <PropertyRef Name="SALE_RATE" />
+            <PropertyRef Name="CO_BATCH_NO" />
+            <PropertyRef Name="CREATE_BY" />
+            <PropertyRef Name="UPDATE_BY" />
+            <PropertyRef Name="IS_ACTIVE" />
+          </Key>
+          <Property Name="BR_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEP_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOC_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOCNO" Type="Int32" Nullable="false" />
+          <Property Name="P_CODE" Type="Int32" Nullable="false" />
+          <Property Name="RI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="V_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="R_LOTNO" Type="Int32" Nullable="false" />
+          <Property Name="INV_QTY" Type="Int32" Nullable="false" />
+          <Property Name="RATE" Type="Int32" Nullable="false" />
+          <Property Name="AMOUNT" Type="Int32" Nullable="false" />
+          <Property Name="REFNO" Type="Int32" Nullable="false" />
+          <Property Name="PARTY_CODE" Type="Int32" />
+          <Property Name="OT_BR_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OT_DEP_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SALE_RATE" Type="Int32" Nullable="false" />
+          <Property Name="TRF_RET_DAMAGE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CO_BATCH_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MRP" Type="Int32" />
+          <Property Name="TAX_CODE" Type="Int32" />
+          <Property Name="TAX_AMT" Type="Int32" />
+          <Property Name="DROP_SHIP" Type="Int32" />
+          <Property Name="DF_SALE_RATE" Type="Int32" />
+          <Property Name="COGS_VAT_AMT" Type="Int32" />
+          <Property Name="NET_SALE_VALUE" Type="Int32" />
+          <Property Name="SUPP_CODE" Type="Int32" />
+          <Property Name="T_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CASE_WEIGHT" Type="Int32" />
+          <Property Name="CREATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_BY" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="IS_ACTIVE" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="PRODUCT_MASTER" Relationship="Self.FK_STOCK_LEDGER_PRODUCT_MASTER" FromRole="STOCK_LEDGER" ToRole="PRODUCT_MASTER" />
+        </EntityType>
+        <Association Name="FK_BRANDS_MANUFACT">
+          <End Role="MANUFACT" Type="Self.MANUFACT" Multiplicity="1" />
+          <End Role="BRANDS" Type="Self.BRAND" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANUFACT">
+              <PropertyRef Name="MANU_CODE" />
+            </Principal>
+            <Dependent Role="BRANDS">
+              <PropertyRef Name="MANU_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_MASTER_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="CAT_CODE" />
+            </Principal>
+            <Dependent Role="PRODUCT_MASTER">
+              <PropertyRef Name="CAT_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUB_CATEGORY_CATEGORY">
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
+          <End Role="SUB_CATEGORY" Type="Self.SUB_CATEGORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORY">
+              <PropertyRef Name="CAT_CODE" />
+            </Principal>
+            <Dependent Role="SUB_CATEGORY">
+              <PropertyRef Name="CAT_COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTOMER_PRODUCT_RATE_MASTER_CUSTOMER_MASTER">
+          <End Role="CUSTOMER_MASTER" Type="Self.CUSTOMER_MASTER" Multiplicity="0..1" />
+          <End Role="CUSTOMER_PRODUCT_RATE_MASTER" Type="Self.CUSTOMER_PRODUCT_RATE_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER_MASTER">
+              <PropertyRef Name="CUSTID" />
+            </Principal>
+            <Dependent Role="CUSTOMER_PRODUCT_RATE_MASTER">
+              <PropertyRef Name="CUST_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_MASTER_MANUFACT">
+          <End Role="MANUFACT" Type="Self.MANUFACT" Multiplicity="1" />
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MANUFACT">
+              <PropertyRef Name="MANU_CODE" />
+            </Principal>
+            <Dependent Role="PRODUCT_MASTER">
+              <PropertyRef Name="MANU_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POS_DETAIL_PRODUCT_MASTER">
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="1" />
+          <End Role="POS_DETAIL" Type="Self.POS_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Principal>
+            <Dependent Role="POS_DETAIL">
+              <PropertyRef Name="P_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_MASTER_PRODUCT_MASTER">
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="1" />
+          <End Role="PRODUCT_MASTER1" Type="Self.PRODUCT_MASTER" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Principal>
+            <Dependent Role="PRODUCT_MASTER1">
+              <PropertyRef Name="P_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCT_MASTER_SUB_CATEGORY">
+          <End Role="SUB_CATEGORY" Type="Self.SUB_CATEGORY" Multiplicity="1" />
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUB_CATEGORY">
+              <PropertyRef Name="SUB_CAT_CODE" />
+            </Principal>
+            <Dependent Role="PRODUCT_MASTER">
+              <PropertyRef Name="SUB_CAT_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCK_LEDGER_PRODUCT_MASTER">
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="1" />
+          <End Role="STOCK_LEDGER" Type="Self.STOCK_LEDGER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Principal>
+            <Dependent Role="STOCK_LEDGER">
+              <PropertyRef Name="P_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STOCK_SUMMARY_PRODUCT_MASTER">
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="0..1" />
+          <End Role="STOCK_SUMMARY" Type="Self.STOCK_SUMMARY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Principal>
+            <Dependent Role="STOCK_SUMMARY">
+              <PropertyRef Name="P_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUPPLIER_RATE_MASTER_PRODUCT_MASTER">
+          <End Role="PRODUCT_MASTER" Type="Self.PRODUCT_MASTER" Multiplicity="1" />
+          <End Role="SUPPLIER_RATE_MASTER" Type="Self.SUPPLIER_RATE_MASTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Principal>
+            <Dependent Role="SUPPLIER_RATE_MASTER">
+              <PropertyRef Name="P_CODE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FruitBytesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BRANDS" EntityType="Self.BRAND" />
+          <EntitySet Name="CAT_TYPE_MASTER" EntityType="Self.CAT_TYPE_MASTER" />
+          <EntitySet Name="CATEGORies" EntityType="Self.CATEGORY" />
+          <EntitySet Name="CUSTOMER_MASTER" EntityType="Self.CUSTOMER_MASTER" />
+          <EntitySet Name="CUSTOMER_PRODUCT_RATE_MASTER" EntityType="Self.CUSTOMER_PRODUCT_RATE_MASTER" />
+          <EntitySet Name="LOGINs" EntityType="Self.LOGIN" />
+          <EntitySet Name="MANUFACTs" EntityType="Self.MANUFACT" />
+          <EntitySet Name="PAYMENT_MASTER" EntityType="Self.PAYMENT_MASTER" />
+          <EntitySet Name="POS_HEADER" EntityType="Self.POS_HEADER" />
+          <EntitySet Name="PRODUCT_MASTER" EntityType="Self.PRODUCT_MASTER" />
+          <EntitySet Name="PUR_DET" EntityType="Self.PUR_DET" />
+          <EntitySet Name="PUR_HDR" EntityType="Self.PUR_HDR" />
+          <EntitySet Name="STOCK_SUMMARY" EntityType="Self.STOCK_SUMMARY" />
+          <EntitySet Name="SUB_CATEGORY" EntityType="Self.SUB_CATEGORY" />
+          <EntitySet Name="SUPPLIER_MASTER" EntityType="Self.SUPPLIER_MASTER" />
+          <EntitySet Name="SUPPLIER_RATE_MASTER" EntityType="Self.SUPPLIER_RATE_MASTER" />
+          <EntitySet Name="POS_DETAIL" EntityType="Self.POS_DETAIL" />
+          <EntitySet Name="POS_PAYMENT" EntityType="Self.POS_PAYMENT" />
+          <EntitySet Name="STOCK_LEDGER" EntityType="Self.STOCK_LEDGER" />
+          <AssociationSet Name="FK_BRANDS_MANUFACT" Association="Self.FK_BRANDS_MANUFACT">
+            <End Role="MANUFACT" EntitySet="MANUFACTs" />
+            <End Role="BRANDS" EntitySet="BRANDS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_MASTER_CATEGORY" Association="Self.FK_PRODUCT_MASTER_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORies" />
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUB_CATEGORY_CATEGORY" Association="Self.FK_SUB_CATEGORY_CATEGORY">
+            <End Role="CATEGORY" EntitySet="CATEGORies" />
+            <End Role="SUB_CATEGORY" EntitySet="SUB_CATEGORY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTOMER_PRODUCT_RATE_MASTER_CUSTOMER_MASTER" Association="Self.FK_CUSTOMER_PRODUCT_RATE_MASTER_CUSTOMER_MASTER">
+            <End Role="CUSTOMER_MASTER" EntitySet="CUSTOMER_MASTER" />
+            <End Role="CUSTOMER_PRODUCT_RATE_MASTER" EntitySet="CUSTOMER_PRODUCT_RATE_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_MASTER_MANUFACT" Association="Self.FK_PRODUCT_MASTER_MANUFACT">
+            <End Role="MANUFACT" EntitySet="MANUFACTs" />
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POS_DETAIL_PRODUCT_MASTER" Association="Self.FK_POS_DETAIL_PRODUCT_MASTER">
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+            <End Role="POS_DETAIL" EntitySet="POS_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_MASTER_PRODUCT_MASTER" Association="Self.FK_PRODUCT_MASTER_PRODUCT_MASTER">
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+            <End Role="PRODUCT_MASTER1" EntitySet="PRODUCT_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCT_MASTER_SUB_CATEGORY" Association="Self.FK_PRODUCT_MASTER_SUB_CATEGORY">
+            <End Role="SUB_CATEGORY" EntitySet="SUB_CATEGORY" />
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCK_LEDGER_PRODUCT_MASTER" Association="Self.FK_STOCK_LEDGER_PRODUCT_MASTER">
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+            <End Role="STOCK_LEDGER" EntitySet="STOCK_LEDGER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STOCK_SUMMARY_PRODUCT_MASTER" Association="Self.FK_STOCK_SUMMARY_PRODUCT_MASTER">
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+            <End Role="STOCK_SUMMARY" EntitySet="STOCK_SUMMARY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUPPLIER_RATE_MASTER_PRODUCT_MASTER" Association="Self.FK_SUPPLIER_RATE_MASTER_PRODUCT_MASTER">
+            <End Role="PRODUCT_MASTER" EntitySet="PRODUCT_MASTER" />
+            <End Role="SUPPLIER_RATE_MASTER" EntitySet="SUPPLIER_RATE_MASTER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FruitBytesModelStoreContainer" CdmEntityContainer="FruitBytesEntities">
+          <EntitySetMapping Name="BRANDS">
+            <EntityTypeMapping TypeName="FruitBytesModel.BRAND">
+              <MappingFragment StoreEntitySet="BRANDS">
+                <ScalarProperty Name="BRAND_CODE" ColumnName="BRAND_CODE" />
+                <ScalarProperty Name="BRAND_NAME" ColumnName="BRAND_NAME" />
+                <ScalarProperty Name="MANU_CODE" ColumnName="MANU_CODE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAT_TYPE_MASTER">
+            <EntityTypeMapping TypeName="FruitBytesModel.CAT_TYPE_MASTER">
+              <MappingFragment StoreEntitySet="CAT_TYPE_MASTER">
+                <ScalarProperty Name="CAT_TYPE_CODE" ColumnName="CAT_TYPE_CODE" />
+                <ScalarProperty Name="CAT_TYPE_DESCRIPTION" ColumnName="CAT_TYPE_DESCRIPTION" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORies">
+            <EntityTypeMapping TypeName="FruitBytesModel.CATEGORY">
+              <MappingFragment StoreEntitySet="CATEGORY">
+                <ScalarProperty Name="CAT_CODE" ColumnName="CAT_CODE" />
+                <ScalarProperty Name="CAT_NAM" ColumnName="CAT_NAM" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_MASTER">
+            <EntityTypeMapping TypeName="FruitBytesModel.CUSTOMER_MASTER">
+              <MappingFragment StoreEntitySet="CUSTOMER_MASTER">
+                <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+                <ScalarProperty Name="CUST_NAME" ColumnName="CUST_NAME" />
+                <ScalarProperty Name="CUST_ADD1" ColumnName="CUST_ADD1" />
+                <ScalarProperty Name="CUST_ADD2" ColumnName="CUST_ADD2" />
+                <ScalarProperty Name="CUST_ADD3" ColumnName="CUST_ADD3" />
+                <ScalarProperty Name="CUST_ADD4" ColumnName="CUST_ADD4" />
+                <ScalarProperty Name="CONTACT_NOS" ColumnName="CONTACT_NOS" />
+                <ScalarProperty Name="CUST_EMAIL" ColumnName="CUST_EMAIL" />
+                <ScalarProperty Name="BIRTH_DATE" ColumnName="BIRTH_DATE" />
+                <ScalarProperty Name="JOIN_DATE" ColumnName="JOIN_DATE" />
+                <ScalarProperty Name="CUST_TYPE" ColumnName="CUST_TYPE" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="LOGIN_NAME" ColumnName="LOGIN_NAME" />
+                <ScalarProperty Name="LOCALITY" ColumnName="LOCALITY" />
+                <ScalarProperty Name="LANDMARK" ColumnName="LANDMARK" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="CUST_GROUP" ColumnName="CUST_GROUP" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="ANNIV_DATE" ColumnName="ANNIV_DATE" />
+                <ScalarProperty Name="DEACT_DATE" ColumnName="DEACT_DATE" />
+                <ScalarProperty Name="DEACT_REASON" ColumnName="DEACT_REASON" />
+                <ScalarProperty Name="LAST_SALE_DATE" ColumnName="LAST_SALE_DATE" />
+                <ScalarProperty Name="MTD_NET_SALE" ColumnName="MTD_NET_SALE" />
+                <ScalarProperty Name="CUST_TITLE" ColumnName="CUST_TITLE" />
+                <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+                <ScalarProperty Name="MTH_AVG_SALE" ColumnName="MTH_AVG_SALE" />
+                <ScalarProperty Name="MTH_CYCLE_ST_DATE" ColumnName="MTH_CYCLE_ST_DATE" />
+                <ScalarProperty Name="INTRO_BY" ColumnName="INTRO_BY" />
+                <ScalarProperty Name="MOB_NO" ColumnName="MOB_NO" />
+                <ScalarProperty Name="CUST_ADD5" ColumnName="CUST_ADD5" />
+                <ScalarProperty Name="CUST_ADD6" ColumnName="CUST_ADD6" />
+                <ScalarProperty Name="SUB_AREA" ColumnName="SUB_AREA" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="PIN_CODE" ColumnName="PIN_CODE" />
+                <ScalarProperty Name="STATE_CODE" ColumnName="STATE_CODE" />
+                <ScalarProperty Name="TEXT_ADDRESS" ColumnName="TEXT_ADDRESS" />
+                <ScalarProperty Name="SEND_OFFERS_VIA" ColumnName="SEND_OFFERS_VIA" />
+                <ScalarProperty Name="SEND_CONFIRM_VIA" ColumnName="SEND_CONFIRM_VIA" />
+                <ScalarProperty Name="REF_CUSTID" ColumnName="REF_CUSTID" />
+                <ScalarProperty Name="SOURCE_AWARNESS" ColumnName="SOURCE_AWARNESS" />
+                <ScalarProperty Name="WEB_PASSWORD" ColumnName="WEB_PASSWORD" />
+                <ScalarProperty Name="ALTERNATE_EMAIL" ColumnName="ALTERNATE_EMAIL" />
+                <ScalarProperty Name="CUST_SOCIETY" ColumnName="CUST_SOCIETY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMER_PRODUCT_RATE_MASTER">
+            <EntityTypeMapping TypeName="FruitBytesModel.CUSTOMER_PRODUCT_RATE_MASTER">
+              <MappingFragment StoreEntitySet="CUSTOMER_PRODUCT_RATE_MASTER">
+                <ScalarProperty Name="CUST_PROD_RATE_ID" ColumnName="CUST_PROD_RATE_ID" />
+                <ScalarProperty Name="P_CODE" ColumnName="P_CODE" />
+                <ScalarProperty Name="CUST_ID" ColumnName="CUST_ID" />
+                <ScalarProperty Name="SGCODE" ColumnName="SGCODE" />
+                <ScalarProperty Name="CUST_SGCODE" ColumnName="CUST_SGCODE" />
+                <ScalarProperty Name="SALE_CALC_ON" ColumnName="SALE_CALC_ON" />
+                <ScalarProperty Name="SALE_CALC_PER" ColumnName="SALE_CALC_PER" />
+                <ScalarProperty Name="SALE_CALC_AMT" ColumnName="SALE_CALC_AMT" />
+                <ScalarProperty Name="DF_SAL_RATE" ColumnName="DF_SAL_RATE" />
+                <ScalarProperty Name="CUST_P_CODE" ColumnName="CUST_P_CODE" />
+                <ScalarProperty Name="MAIN_QTY" ColumnName="MAIN_QTY" />
+                <ScalarProperty Name="FREE_QTY" ColumnName="FREE_QTY" />
+                <ScalarProperty Name="FREE_PCODE" ColumnName="FREE_PCODE" />
+                <ScalarProperty Name="CASH_DISC_PER" ColumnName="CASH_DISC_PER" />
+                <ScalarProperty Name="NORMAL_LEAD_TIME" ColumnName="NORMAL_LEAD_TIME" />
+                <ScalarProperty Name="MAX_LEAD_TIME" ColumnName="MAX_LEAD_TIME" />
+                <ScalarProperty Name="BATCH_QTY" ColumnName="BATCH_QTY" />
+                <ScalarProperty Name="MIN_ORDER_BATCH" ColumnName="MIN_ORDER_BATCH" />
+                <ScalarProperty Name="NARRATION" ColumnName="NARRATION" />
+                <ScalarProperty Name="TAX_CODE" ColumnName="TAX_CODE" />
+                <ScalarProperty Name="APMC_PER" ColumnName="APMC_PER" />
+                <ScalarProperty Name="OCTROI_PER" ColumnName="OCTROI_PER" />
+                <ScalarProperty Name="CONTAINOR_CHARGES" ColumnName="CONTAINOR_CHARGES" />
+                <ScalarProperty Name="HANDLING_FREIGHT_CHARGES" ColumnName="HANDLING_FREIGHT_CHARGES" />
+                <ScalarProperty Name="OTHER_CHARGES" ColumnName="OTHER_CHARGES" />
+                <ScalarProperty Name="ST_DATE" ColumnName="ST_DATE" />
+                <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGINs">
+            <EntityTypeMapping TypeName="FruitBytesModel.LOGIN">
+              <MappingFragment StoreEntitySet="LOGIN">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="PASS" ColumnName="PASS" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MANUFACTs">
+            <EntityTypeMapping TypeName="FruitBytesModel.MANUFACT">
+              <MappingFragment StoreEntitySet="MANUFACT">
+                <ScalarProperty Name="MANU_CODE" ColumnName="MANU_CODE" />
+                <ScalarProperty Name="MANU_NAME" ColumnName="MANU_NAME" />
+                <ScalarProperty Name="MANU_SHORT_NAME" ColumnName="MANU_SHORT_NAME" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAYMENT_MASTER">
+            <EntityTypeMapping TypeName="FruitBytesModel.PAYMENT_MASTER">
+              <MappingFragment StoreEntitySet="PAYMENT_MASTER">
+                <ScalarProperty Name="PMT_TYPE" ColumnName="PMT_TYPE" />
+                <ScalarProperty Name="PMT_NAME" ColumnName="PMT_NAME" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="ON_MRP" ColumnName="ON_MRP" />
+                <ScalarProperty Name="ALLOW_MULTIPLE" ColumnName="ALLOW_MULTIPLE" />
+                <ScalarProperty Name="PMT_GROUP" ColumnName="PMT_GROUP" />
+                <ScalarProperty Name="ONLINE_PMT" ColumnName="ONLINE_PMT" />
+                <ScalarProperty Name="CHARGES_AMT" ColumnName="CHARGES_AMT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POS_HEADER">
+            <EntityTypeMapping TypeName="FruitBytesModel.POS_HEADER">
+              <MappingFragment StoreEntitySet="POS_HEADER">
+                <ScalarProperty Name="POS_HEADER_ID" ColumnName="POS_HEADER_ID" />
+                <ScalarProperty Name="V_NO" ColumnName="V_NO" />
+                <ScalarProperty Name="DEP_CODE" ColumnName="DEP_CODE" />
+                <ScalarProperty Name="V_DATE" ColumnName="V_DATE" />
+                <ScalarProperty Name="MAC_ID" ColumnName="MAC_ID" />
+                <ScalarProperty Name="TOT_LINE_ITEMS" ColumnName="TOT_LINE_ITEMS" />
+                <ScalarProperty Name="ROUNDOFF" ColumnName="ROUNDOFF" />
+                <ScalarProperty Name="CUSTID" ColumnName="CUSTID" />
+                <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+                <ScalarProperty Name="BILL_AMT" ColumnName="BILL_AMT" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="STAFF" ColumnName="STAFF" />
+                <ScalarProperty Name="STAFF_NAME" ColumnName="STAFF_NAME" />
+                <ScalarProperty Name="IN_INV" ColumnName="IN_INV" />
+                <ScalarProperty Name="CUST" ColumnName="CUST" />
+                <ScalarProperty Name="HOME_DELIVERY" ColumnName="HOME_DELIVERY" />
+                <ScalarProperty Name="TAX_CODE" ColumnName="TAX_CODE" />
+                <ScalarProperty Name="TAXABLE_AMT" ColumnName="TAXABLE_AMT" />
+                <ScalarProperty Name="TAX_AMT" ColumnName="TAX_AMT" />
+                <ScalarProperty Name="TOT_AMT" ColumnName="TOT_AMT" />
+                <ScalarProperty Name="SC_AMT" ColumnName="SC_AMT" />
+                <ScalarProperty Name="AMT_RECD" ColumnName="AMT_RECD" />
+                <ScalarProperty Name="TOT_QTY" ColumnName="TOT_QTY" />
+                <ScalarProperty Name="ORD_ID" ColumnName="ORD_ID" />
+                <ScalarProperty Name="SALESMAN_ID" ColumnName="SALESMAN_ID" />
+                <ScalarProperty Name="SCHEME_DISC" ColumnName="SCHEME_DISC" />
+                <ScalarProperty Name="BILL_SCH_DISC" ColumnName="BILL_SCH_DISC" />
+                <ScalarProperty Name="TOKEN_NO" ColumnName="TOKEN_NO" />
+                <ScalarProperty Name="DISC_U_CODE" ColumnName="DISC_U_CODE" />
+                <ScalarProperty Name="DELIV_UCODE" ColumnName="DELIV_UCODE" />
+                <ScalarProperty Name="DELIV_DATE" ColumnName="DELIV_DATE" />
+                <ScalarProperty Name="NARRATION" ColumnName="NARRATION" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT_MASTER">
+            <EntityTypeMapping TypeName="FruitBytesModel.PRODUCT_MASTER">
+              <MappingFragment StoreEntitySet="PRODUCT_MASTER">
+                <ScalarProperty Name="P_CODE" ColumnName="P_CODE" />
+                <ScalarProperty Name="P_NAME" ColumnName="P_NAME" />
+                <ScalarProperty Name="P_DESCRIPTION" ColumnName="P_DESCRIPTION" />
+                <ScalarProperty Name="P_TYPE" ColumnName="P_TYPE" />
+                <ScalarProperty Name="REF_P_CODE" ColumnName="REF_P_CODE" />
+                <ScalarProperty Name="CAT_CODE" ColumnName="CAT_CODE" />
+                <ScalarProperty Name="SUB_CAT_CODE" ColumnName="SUB_CAT_CODE" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="BRAND_CODE" ColumnName="BRAND_CODE" />
+                <ScalarProperty Name="CLASS_CODE" ColumnName="CLASS_CODE" />
+                <ScalarProperty Name="PK_SIZE" ColumnName="PK_SIZE" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="PK_FORM" ColumnName="PK_FORM" />
+                <ScalarProperty Name="PRE_BAR_CODED" ColumnName="PRE_BAR_CODED" />
+                <ScalarProperty Name="TAXABLE" ColumnName="TAXABLE" />
+                <ScalarProperty Name="QTY_PUR_PK" ColumnName="QTY_PUR_PK" />
+                <ScalarProperty Name="PK_TYPE" ColumnName="PK_TYPE" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="MANU_CODE" ColumnName="MANU_CODE" />
+                <ScalarProperty Name="P_IN_INV" ColumnName="P_IN_INV" />
+                <ScalarProperty Name="CAT_TYPE" ColumnName="CAT_TYPE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+                <ScalarProperty Name="EXPIRY_DATE_COMPULSORY" ColumnName="EXPIRY_DATE_COMPULSORY" />
+                <ScalarProperty Name="INNER_PACK_SIZE" ColumnName="INNER_PACK_SIZE" />
+                <ScalarProperty Name="DEACT_DATE" ColumnName="DEACT_DATE" />
+                <ScalarProperty Name="DEACT_REASON" ColumnName="DEACT_REASON" />
+                <ScalarProperty Name="TOLERABLE_EXP_DATE_DM" ColumnName="TOLERABLE_EXP_DATE_DM" />
+                <ScalarProperty Name="TOLERABLE_EXP_DATE_PERIOD" ColumnName="TOLERABLE_EXP_DATE_PERIOD" />
+                <ScalarProperty Name="CO_BATCH_NO_REQUIRED" ColumnName="CO_BATCH_NO_REQUIRED" />
+                <ScalarProperty Name="RATE_ENTERABLE" ColumnName="RATE_ENTERABLE" />
+                <ScalarProperty Name="CARTON_INFO_REQUIRED" ColumnName="CARTON_INFO_REQUIRED" />
+                <ScalarProperty Name="SUPPLY_TYPE" ColumnName="SUPPLY_TYPE" />
+                <ScalarProperty Name="MRP_BASED" ColumnName="MRP_BASED" />
+                <ScalarProperty Name="NET_CASE_WEIGHT" ColumnName="NET_CASE_WEIGHT" />
+                <ScalarProperty Name="MARKUP_IND" ColumnName="MARKUP_IND" />
+                <ScalarProperty Name="MARKDOWN_IND" ColumnName="MARKDOWN_IND" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUR_DET">
+            <EntityTypeMapping TypeName="FruitBytesModel.PUR_DET">
+              <MappingFragment StoreEntitySet="PUR_DET">
+                <ScalarProperty Name="LOTNO" ColumnName="LOTNO" />
+                <ScalarProperty Name="P_CODE" ColumnName="P_CODE" />
+                <ScalarProperty Name="NO_OF_PKS" ColumnName="NO_OF_PKS" />
+                <ScalarProperty Name="QTY_PUR_PK" ColumnName="QTY_PUR_PK" />
+                <ScalarProperty Name="BILL_QTY" ColumnName="BILL_QTY" />
+                <ScalarProperty Name="R_QTY" ColumnName="R_QTY" />
+                <ScalarProperty Name="BILL_RATE" ColumnName="BILL_RATE" />
+                <ScalarProperty Name="BILL_GROSS_AMT" ColumnName="BILL_GROSS_AMT" />
+                <ScalarProperty Name="R_GROSS_AMT" ColumnName="R_GROSS_AMT" />
+                <ScalarProperty Name="P_DISCOUNT" ColumnName="P_DISCOUNT" />
+                <ScalarProperty Name="TAX_CODE" ColumnName="TAX_CODE" />
+                <ScalarProperty Name="TAX_AMT" ColumnName="TAX_AMT" />
+                <ScalarProperty Name="ADJ_AMT" ColumnName="ADJ_AMT" />
+                <ScalarProperty Name="PUR_AMT" ColumnName="PUR_AMT" />
+                <ScalarProperty Name="PUR_CODE" ColumnName="PUR_CODE" />
+                <ScalarProperty Name="LANDING_COST" ColumnName="LANDING_COST" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="SELLING_RATE" ColumnName="SELLING_RATE" />
+                <ScalarProperty Name="PK_TYPE" ColumnName="PK_TYPE" />
+                <ScalarProperty Name="PK_AMT" ColumnName="PK_AMT" />
+                <ScalarProperty Name="PK_TYPE_NOS" ColumnName="PK_TYPE_NOS" />
+                <ScalarProperty Name="EXPIRY_DATE" ColumnName="EXPIRY_DATE" />
+                <ScalarProperty Name="NARRATION" ColumnName="NARRATION" />
+                <ScalarProperty Name="CO_BATCH_NO" ColumnName="CO_BATCH_NO" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="SPL_DISCOUNT" ColumnName="SPL_DISCOUNT" />
+                <ScalarProperty Name="OTH_DISCOUNT" ColumnName="OTH_DISCOUNT" />
+                <ScalarProperty Name="DISC_RETAINED" ColumnName="DISC_RETAINED" />
+                <ScalarProperty Name="DISC_PASSED" ColumnName="DISC_PASSED" />
+                <ScalarProperty Name="ST_AMT" ColumnName="ST_AMT" />
+                <ScalarProperty Name="SC_AMT" ColumnName="SC_AMT" />
+                <ScalarProperty Name="TOT_AMT" ColumnName="TOT_AMT" />
+                <ScalarProperty Name="OCTROI_AMT" ColumnName="OCTROI_AMT" />
+                <ScalarProperty Name="APMC_AMT" ColumnName="APMC_AMT" />
+                <ScalarProperty Name="CONT_AMT" ColumnName="CONT_AMT" />
+                <ScalarProperty Name="HANDLING_FREIGHT_AMT" ColumnName="HANDLING_FREIGHT_AMT" />
+                <ScalarProperty Name="OTHER_AMT" ColumnName="OTHER_AMT" />
+                <ScalarProperty Name="FREE_PCODE" ColumnName="FREE_PCODE" />
+                <ScalarProperty Name="FREE_QTY" ColumnName="FREE_QTY" />
+                <ScalarProperty Name="SRNO" ColumnName="SRNO" />
+                <ScalarProperty Name="V_NO" ColumnName="V_NO" />
+                <ScalarProperty Name="SCHEME_NARRATION" ColumnName="SCHEME_NARRATION" />
+                <ScalarProperty Name="SALE_TYPE" ColumnName="SALE_TYPE" />
+                <ScalarProperty Name="DEP_CODE" ColumnName="DEP_CODE" />
+                <ScalarProperty Name="SUPP_LAMT" ColumnName="SUPP_LAMT" />
+                <ScalarProperty Name="CARTON_CODE" ColumnName="CARTON_CODE" />
+                <ScalarProperty Name="ALLOC_QTY" ColumnName="ALLOC_QTY" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PUR_HDR">
+            <EntityTypeMapping TypeName="FruitBytesModel.PUR_HDR">
+              <MappingFragment StoreEntitySet="PUR_HDR">
+                <ScalarProperty Name="V_NO" ColumnName="V_NO" />
+                <ScalarProperty Name="SUPP_CODE" ColumnName="SUPP_CODE" />
+                <ScalarProperty Name="V_DATE" ColumnName="V_DATE" />
+                <ScalarProperty Name="GROSS_AMT" ColumnName="GROSS_AMT" />
+                <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+                <ScalarProperty Name="ST_AMT" ColumnName="ST_AMT" />
+                <ScalarProperty Name="OCTROI_AMT" ColumnName="OCTROI_AMT" />
+                <ScalarProperty Name="TOT_AMT" ColumnName="TOT_AMT" />
+                <ScalarProperty Name="SC_AMT" ColumnName="SC_AMT" />
+                <ScalarProperty Name="APMC_AMT" ColumnName="APMC_AMT" />
+                <ScalarProperty Name="ROUND_AMT" ColumnName="ROUND_AMT" />
+                <ScalarProperty Name="CONT_AMT" ColumnName="CONT_AMT" />
+                <ScalarProperty Name="PUR_AMT" ColumnName="PUR_AMT" />
+                <ScalarProperty Name="SALE_AMT" ColumnName="SALE_AMT" />
+                <ScalarProperty Name="CR_DAYS" ColumnName="CR_DAYS" />
+                <ScalarProperty Name="BILLNO" ColumnName="BILLNO" />
+                <ScalarProperty Name="BILL_DATE" ColumnName="BILL_DATE" />
+                <ScalarProperty Name="DC_NO" ColumnName="DC_NO" />
+                <ScalarProperty Name="DC_DATE" ColumnName="DC_DATE" />
+                <ScalarProperty Name="PO_NO" ColumnName="PO_NO" />
+                <ScalarProperty Name="PO_DATE" ColumnName="PO_DATE" />
+                <ScalarProperty Name="AUTH_FLG" ColumnName="AUTH_FLG" />
+                <ScalarProperty Name="AUTH_UCODE" ColumnName="AUTH_UCODE" />
+                <ScalarProperty Name="AUTH_DATE" ColumnName="AUTH_DATE" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="NARRATION" ColumnName="NARRATION" />
+                <ScalarProperty Name="SPL_DISCOUNT" ColumnName="SPL_DISCOUNT" />
+                <ScalarProperty Name="OTH_DISCOUNT" ColumnName="OTH_DISCOUNT" />
+                <ScalarProperty Name="DISC_RETAINED" ColumnName="DISC_RETAINED" />
+                <ScalarProperty Name="DISC_PASSED" ColumnName="DISC_PASSED" />
+                <ScalarProperty Name="HANDLING_FREIGHT_AMT" ColumnName="HANDLING_FREIGHT_AMT" />
+                <ScalarProperty Name="OTHER_AMT" ColumnName="OTHER_AMT" />
+                <ScalarProperty Name="CONSIGNMENT" ColumnName="CONSIGNMENT" />
+                <ScalarProperty Name="PUR_RET_AMT" ColumnName="PUR_RET_AMT" />
+                <ScalarProperty Name="NET_PAYABLE_AMT" ColumnName="NET_PAYABLE_AMT" />
+                <ScalarProperty Name="UPD_UCODE" ColumnName="UPD_UCODE" />
+                <ScalarProperty Name="UPD_TDATE" ColumnName="UPD_TDATE" />
+                <ScalarProperty Name="TAX_INVOICE" ColumnName="TAX_INVOICE" />
+                <ScalarProperty Name="FORM_TYPE" ColumnName="FORM_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOCK_SUMMARY">
+            <EntityTypeMapping TypeName="FruitBytesModel.STOCK_SUMMARY">
+              <MappingFragment StoreEntitySet="STOCK_SUMMARY">
+                <ScalarProperty Name="LOTNO" ColumnName="LOTNO" />
+                <ScalarProperty Name="DEP_CODE" ColumnName="DEP_CODE" />
+                <ScalarProperty Name="P_CODE" ColumnName="P_CODE" />
+                <ScalarProperty Name="DOC_TYPE" ColumnName="DOC_TYPE" />
+                <ScalarProperty Name="REF_DATE" ColumnName="REF_DATE" />
+                <ScalarProperty Name="REC_QTY" ColumnName="REC_QTY" />
+                <ScalarProperty Name="INT_TRF_IN_QTY" ColumnName="INT_TRF_IN_QTY" />
+                <ScalarProperty Name="OTH_IN_QTY" ColumnName="OTH_IN_QTY" />
+                <ScalarProperty Name="SALE_QTY" ColumnName="SALE_QTY" />
+                <ScalarProperty Name="INT_TRF_OUT_QTY" ColumnName="INT_TRF_OUT_QTY" />
+                <ScalarProperty Name="EXT_TRF_OUT_QTY" ColumnName="EXT_TRF_OUT_QTY" />
+                <ScalarProperty Name="OTH_OUT_QTY" ColumnName="OTH_OUT_QTY" />
+                <ScalarProperty Name="BAL_QTY" ColumnName="BAL_QTY" />
+                <ScalarProperty Name="COST_RATE" ColumnName="COST_RATE" />
+                <ScalarProperty Name="DF_SALE_RATE" ColumnName="DF_SALE_RATE" />
+                <ScalarProperty Name="RT_CHG_DOCNO" ColumnName="RT_CHG_DOCNO" />
+                <ScalarProperty Name="SALE_UPD_DATE" ColumnName="SALE_UPD_DATE" />
+                <ScalarProperty Name="LAST_UPD_DATE" ColumnName="LAST_UPD_DATE" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="CO_BATCH_NO" ColumnName="CO_BATCH_NO" />
+                <ScalarProperty Name="EXPIRY_DATE" ColumnName="EXPIRY_DATE" />
+                <ScalarProperty Name="SUPP_CODE" ColumnName="SUPP_CODE" />
+                <ScalarProperty Name="SALE_TYPE" ColumnName="SALE_TYPE" />
+                <ScalarProperty Name="SCHEME_NARRATION" ColumnName="SCHEME_NARRATION" />
+                <ScalarProperty Name="TAX_CODE" ColumnName="TAX_CODE" />
+                <ScalarProperty Name="TAX_AMT" ColumnName="TAX_AMT" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUB_CATEGORY">
+            <EntityTypeMapping TypeName="FruitBytesModel.SUB_CATEGORY">
+              <MappingFragment StoreEntitySet="SUB_CATEGORY">
+                <ScalarProperty Name="SUB_CAT_CODE" ColumnName="SUB_CAT_CODE" />
+                <ScalarProperty Name="SUB_CAT_NAME" ColumnName="SUB_CAT_NAME" />
+                <ScalarProperty Name="CAT_COD" ColumnName="CAT_COD" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUPPLIER_MASTER">
+            <EntityTypeMapping TypeName="FruitBytesModel.SUPPLIER_MASTER">
+              <MappingFragment StoreEntitySet="SUPPLIER_MASTER">
+                <ScalarProperty Name="SUPP_CODE" ColumnName="SUPP_CODE" />
+                <ScalarProperty Name="SUPP_NAME" ColumnName="SUPP_NAME" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="CHEQUE_NAME" ColumnName="CHEQUE_NAME" />
+                <ScalarProperty Name="ORDER_BY" ColumnName="ORDER_BY" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="STATE_CODE" ColumnName="STATE_CODE" />
+                <ScalarProperty Name="COUNTRY_CODE" ColumnName="COUNTRY_CODE" />
+                <ScalarProperty Name="PIN" ColumnName="PIN" />
+                <ScalarProperty Name="TEL1" ColumnName="TEL1" />
+                <ScalarProperty Name="TEL2" ColumnName="TEL2" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="CPERSON" ColumnName="CPERSON" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="CRDAYS" ColumnName="CRDAYS" />
+                <ScalarProperty Name="CRLIMIT" ColumnName="CRLIMIT" />
+                <ScalarProperty Name="GST_NO" ColumnName="GST_NO" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUPPLIER_RATE_MASTER">
+            <EntityTypeMapping TypeName="FruitBytesModel.SUPPLIER_RATE_MASTER">
+              <MappingFragment StoreEntitySet="SUPPLIER_RATE_MASTER">
+                <ScalarProperty Name="SUPP_RATE_ID" ColumnName="SUPP_RATE_ID" />
+                <ScalarProperty Name="SUPP_CODE" ColumnName="SUPP_CODE" />
+                <ScalarProperty Name="P_CODE" ColumnName="P_CODE" />
+                <ScalarProperty Name="SUPP_PRODUC_CODE" ColumnName="SUPP_PRODUC_CODE" />
+                <ScalarProperty Name="NORMAL_LEAD_TIME" ColumnName="NORMAL_LEAD_TIME" />
+                <ScalarProperty Name="MAX_LEAD_TIME" ColumnName="MAX_LEAD_TIME" />
+                <ScalarProperty Name="BATCH_QTY" ColumnName="BATCH_QTY" />
+                <ScalarProperty Name="MIN_ORDER_BATCH" ColumnName="MIN_ORDER_BATCH" />
+                <ScalarProperty Name="RATE" ColumnName="RATE" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="ST_DATE" ColumnName="ST_DATE" />
+                <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="NARRATION" ColumnName="NARRATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POS_DETAIL">
+            <EntityTypeMapping TypeName="FruitBytesModel.POS_DETAIL">
+              <MappingFragment StoreEntitySet="POS_DETAIL">
+                <ScalarProperty Name="V_NO" ColumnName="V_NO" />
+                <ScalarProperty Name="DEP_CODE" ColumnName="DEP_CODE" />
+                <ScalarProperty Name="P_CODE" ColumnName="P_CODE" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="RATE" ColumnName="RATE" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="R_DOCTYPE" ColumnName="R_DOCTYPE" />
+                <ScalarProperty Name="R_LOTNO" ColumnName="R_LOTNO" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDTEA_BY" ColumnName="UPDTEA_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="SRNO" ColumnName="SRNO" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="SCHEME_DISC" ColumnName="SCHEME_DISC" />
+                <ScalarProperty Name="BILL_DISC" ColumnName="BILL_DISC" />
+                <ScalarProperty Name="ITEM_TOT_AMT" ColumnName="ITEM_TOT_AMT" />
+                <ScalarProperty Name="TAX_AMOUNT" ColumnName="TAX_AMOUNT" />
+                <ScalarProperty Name="TAX_CODE" ColumnName="TAX_CODE" />
+                <ScalarProperty Name="FREE_ITEM" ColumnName="FREE_ITEM" />
+                <ScalarProperty Name="COST_RATE" ColumnName="COST_RATE" />
+                <ScalarProperty Name="SCAN_INDICATOR" ColumnName="SCAN_INDICATOR" />
+                <ScalarProperty Name="SALESMAN_ID" ColumnName="SALESMAN_ID" />
+                <ScalarProperty Name="ACTION_IND" ColumnName="ACTION_IND" />
+                <ScalarProperty Name="DF_SALE_RATE" ColumnName="DF_SALE_RATE" />
+                <ScalarProperty Name="CO_BATCH_NO" ColumnName="CO_BATCH_NO" />
+                <ScalarProperty Name="EXPIRY_DATE" ColumnName="EXPIRY_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POS_PAYMENT">
+            <EntityTypeMapping TypeName="FruitBytesModel.POS_PAYMENT">
+              <MappingFragment StoreEntitySet="POS_PAYMENT">
+                <ScalarProperty Name="POS_PAYMENT_ID" ColumnName="POS_PAYMENT_ID" />
+                <ScalarProperty Name="V_NO" ColumnName="V_NO" />
+                <ScalarProperty Name="PMT_TYPE" ColumnName="PMT_TYPE" />
+                <ScalarProperty Name="PMT_CODE" ColumnName="PMT_CODE" />
+                <ScalarProperty Name="REFNO" ColumnName="REFNO" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="NARRATION" ColumnName="NARRATION" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="PMT_REF" ColumnName="PMT_REF" />
+                <ScalarProperty Name="PMT_CHRG" ColumnName="PMT_CHRG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOCK_LEDGER">
+            <EntityTypeMapping TypeName="FruitBytesModel.STOCK_LEDGER">
+              <MappingFragment StoreEntitySet="STOCK_LEDGER">
+                <ScalarProperty Name="BR_CODE" ColumnName="BR_CODE" />
+                <ScalarProperty Name="DEP_CODE" ColumnName="DEP_CODE" />
+                <ScalarProperty Name="DOC_TYPE" ColumnName="DOC_TYPE" />
+                <ScalarProperty Name="DOCNO" ColumnName="DOCNO" />
+                <ScalarProperty Name="P_CODE" ColumnName="P_CODE" />
+                <ScalarProperty Name="RI" ColumnName="RI" />
+                <ScalarProperty Name="V_DATE" ColumnName="V_DATE" />
+                <ScalarProperty Name="R_LOTNO" ColumnName="R_LOTNO" />
+                <ScalarProperty Name="INV_QTY" ColumnName="INV_QTY" />
+                <ScalarProperty Name="RATE" ColumnName="RATE" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="REFNO" ColumnName="REFNO" />
+                <ScalarProperty Name="PARTY_CODE" ColumnName="PARTY_CODE" />
+                <ScalarProperty Name="OT_BR_CODE" ColumnName="OT_BR_CODE" />
+                <ScalarProperty Name="OT_DEP_CODE" ColumnName="OT_DEP_CODE" />
+                <ScalarProperty Name="SALE_RATE" ColumnName="SALE_RATE" />
+                <ScalarProperty Name="TRF_RET_DAMAGE" ColumnName="TRF_RET_DAMAGE" />
+                <ScalarProperty Name="CO_BATCH_NO" ColumnName="CO_BATCH_NO" />
+                <ScalarProperty Name="MRP" ColumnName="MRP" />
+                <ScalarProperty Name="TAX_CODE" ColumnName="TAX_CODE" />
+                <ScalarProperty Name="TAX_AMT" ColumnName="TAX_AMT" />
+                <ScalarProperty Name="DROP_SHIP" ColumnName="DROP_SHIP" />
+                <ScalarProperty Name="DF_SALE_RATE" ColumnName="DF_SALE_RATE" />
+                <ScalarProperty Name="COGS_VAT_AMT" ColumnName="COGS_VAT_AMT" />
+                <ScalarProperty Name="NET_SALE_VALUE" ColumnName="NET_SALE_VALUE" />
+                <ScalarProperty Name="SUPP_CODE" ColumnName="SUPP_CODE" />
+                <ScalarProperty Name="T_DATE" ColumnName="T_DATE" />
+                <ScalarProperty Name="CASE_WEIGHT" ColumnName="CASE_WEIGHT" />
+                <ScalarProperty Name="CREATE_BY" ColumnName="CREATE_BY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_BY" ColumnName="UPDATE_BY" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
