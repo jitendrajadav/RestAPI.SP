@@ -1,0 +1,32 @@
+﻿<Window x:Class="RestWPF.Views.DynamicMenuView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="DynamicMenuView" Height="300" Width="300">
+    <Window.Resources>
+        <DataTemplate DataType="local:MyData2">
+            <MenuItem Header="{Binding Name}"/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <Menu.Resources>
+                <Style x:Key="ThemeMenuItemStyle" TargetType="MenuItem">
+                    <Setter Property="Header" Value="{Binding Name}"></Setter>
+                    <Setter Property="ItemsSource" Value="{Binding More}"></Setter>
+                </Style>
+            </Menu.Resources>
+            <MenuItem Header="Themes" ItemsSource="{Binding Themes}" 
+      ItemContainerStyle="{StaticResource ThemeMenuItemStyle}"  />
+        </Menu>
+
+
+    </Grid>
+
+</Window>
