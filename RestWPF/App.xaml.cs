@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
 using RestWPF.SQLiteClient;
+using System;
 using System.Windows;
 
 namespace RestWPF
@@ -13,6 +14,12 @@ namespace RestWPF
         {
             SimpleIoc.Default.Register<ISQLite, SQLiteWPF>();
             SqliteServiceClient.Instance.CreateDbIfNotExist();
+        }
+
+        private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            if (e.Exception is InvalidOperationException)
+                e.Handled = true;
         }
     }
 }

@@ -15,18 +15,11 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Menu>
-            <Menu.Resources>
-                <Style x:Key="ThemeMenuItemStyle" TargetType="MenuItem">
-                    <Setter Property="Header" Value="{Binding Name}"></Setter>
-                    <Setter Property="ItemsSource" Value="{Binding More}"></Setter>
-                </Style>
-            </Menu.Resources>
-            <MenuItem Header="Themes" ItemsSource="{Binding Themes}" 
-      ItemContainerStyle="{StaticResource ThemeMenuItemStyle}"  />
+        <Menu x:Name="myMenu">
+            <!--<MenuItem 
+                Header="Themes" 
+                ItemsSource="{Binding Themes}" 
+                ItemContainerStyle="{StaticResource ThemeMenuItemStyle}"  />-->
         </Menu>
-
-
     </Grid>
-
 </Window>

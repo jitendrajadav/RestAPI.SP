@@ -331,6 +331,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPF.Themes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\wpfthemes.0.0.1\lib\WPF.Themes.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -358,6 +361,7 @@
     <Compile Include="CUSTOMER_PRODUCT_RATE_MASTER.cs">
       <DependentUpon>FruiBytesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="FontProperties.cs" />
     <Compile Include="FruiBytesModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -435,6 +439,12 @@
     <Compile Include="Views\DynamicMenuView.xaml.cs">
       <DependentUpon>DynamicMenuView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FontStyleView.xaml.cs">
+      <DependentUpon>FontStyleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemesView.xaml.cs">
+      <DependentUpon>ThemesView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -450,6 +460,14 @@
     <Page Include="Views\DynamicMenuView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FontStyleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThemesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
